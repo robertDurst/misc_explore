@@ -88,8 +88,18 @@ a{ color:inherit; }
 .match-date .dow{ font-size:11px; text-transform:uppercase;
   letter-spacing:1px; color:var(--gold); font-weight:600; }
 .match-date .dm{ font-size:15px; font-weight:600; margin-top:2px; }
-.match-teams{ font-family:var(--font-fraunces),Georgia,serif;
-  font-size:17px; font-weight:600; }
+.match-teams{
+  display:grid; grid-template-columns: 1fr 64px 1fr;
+  align-items:center; gap:12px;
+  font-family:var(--font-fraunces),Georgia,serif;
+  font-size:17px; font-weight:600;
+}
+.match-teams .side{ display:flex; align-items:center; gap:6px; min-width:0; }
+.match-teams .side.home{ justify-content:flex-end; }
+.match-teams .side.away{ justify-content:flex-start; }
+.match-teams .middle{ text-align:center; white-space:nowrap; }
+.match-teams .vs{ opacity:.55; font-style:italic; font-weight:500; }
+.match-teams .team-name{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .match-comp{ font-size:11px; letter-spacing:1px; text-transform:uppercase;
   color:var(--gold); font-weight:600; white-space:nowrap; }
 .local-time{ opacity:.85; }
@@ -97,6 +107,7 @@ a{ color:inherit; }
 @media (max-width: 560px){
   .match{ grid-template-columns: 56px 1fr; }
   .match-comp{ grid-column: 2; font-size:10px; opacity:.85; }
+  .match-teams{ font-size:14px; gap:8px; grid-template-columns: 1fr 52px 1fr; }
 }
 
 /* form (last 5 W/D/L pills) */

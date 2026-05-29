@@ -37,20 +37,13 @@ function Crest({ teamName, size = 20 }: { teamName: string; size?: number }) {
 }
 
 function MatchRow({ m, kind }: { m: Fixture; kind: "upcoming" | "past" }) {
-  const teamsContent =
+  const middle =
     kind === "past" && m.score ? (
-      <>
-        <Crest teamName={m.homeTeam} /> {displayName(m.homeTeam)}{" "}
-        <span className="score">
-          {m.score[0]} — {m.score[1]}
-        </span>{" "}
-        <Crest teamName={m.awayTeam} /> {displayName(m.awayTeam)}
-      </>
+      <span className="score">
+        {m.score[0]} — {m.score[1]}
+      </span>
     ) : (
-      <>
-        <Crest teamName={m.homeTeam} /> {displayName(m.homeTeam)} vs{" "}
-        <Crest teamName={m.awayTeam} /> {displayName(m.awayTeam)}
-      </>
+      <span className="vs">vs</span>
     );
   return (
     <li className="match">
@@ -58,7 +51,17 @@ function MatchRow({ m, kind }: { m: Fixture; kind: "upcoming" | "past" }) {
         <span className="dow">{dow(m.utcISO)}</span>
         <span className="dm">{dm(m.utcISO)}</span>
       </div>
-      <div className="match-teams">{teamsContent}</div>
+      <div className="match-teams">
+        <span className="side home">
+          <Crest teamName={m.homeTeam} />
+          <span className="team-name">{displayName(m.homeTeam)}</span>
+        </span>
+        <span className="middle">{middle}</span>
+        <span className="side away">
+          <span className="team-name">{displayName(m.awayTeam)}</span>
+          <Crest teamName={m.awayTeam} />
+        </span>
+      </div>
       <div className="match-comp">Serie A {shortRound(m.round)}</div>
     </li>
   );
@@ -68,7 +71,7 @@ export default async function Calendario() {
   const { upcoming, past, form, upcomingSeasonLabel } = await getCalendario();
   const hero = upcoming[0];
   const restUpcoming = upcoming.slice(1, 11);
-  const recentPast = past.slice(0, 10);
+  const recentPast = past.slice(0, 5);
 
   return (
     <main className="container">
@@ -109,16 +112,20 @@ export default async function Calendario() {
         <section className="form-section">
           <p className="kicker">Forma · Últimos 5</p>
           <div className="form-pills" role="list" aria-label="Forma de los últimos 5 partidos">
-            {form.map((r, i) => (
-              <span
-                key={i}
-                role="listitem"
-                className={`form-pill form-${r}`}
-                title={r === "W" ? "Victoria" : r === "D" ? "Empate" : "Derrota"}
-              >
-                {r}
-              </span>
-            ))}
+            {form.map((r, i) => {
+              const label = r === "W" ? "G" : r === "D" ? "E" : "P";
+              const title = r === "W" ? "Ganado" : r === "D" ? "Empate" : "Perdido";
+              return (
+                <span
+                  key={i}
+                  role="listitem"
+                  className={`form-pill form-${r}`}
+                  title={title}
+                >
+                  {label}
+                </span>
+              );
+            })}
           </div>
         </section>
       )}
