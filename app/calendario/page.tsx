@@ -1,4 +1,5 @@
 import { getCalendario, type Fixture } from "@/lib/fixtures";
+import { crestPath, displayName } from "@/lib/crests";
 import LocalTime from "./LocalTime";
 
 export const revalidate = 21600; // 6h
@@ -24,29 +25,32 @@ function dow(iso: string) {
 function dm(iso: string) {
   return dmFmt.format(new Date(iso));
 }
-function strip(s: string) {
-  return s
-    .replace(/^(SSC|AC|AS|US|FC|SS) /, "")
-    .replace(/ FC$| Calcio$/, "");
-}
 function shortRound(r: string | null) {
   return r ? r.replace(/^Matchday /, "J") : "";
+}
+
+function Crest({ teamName, size = 20 }: { teamName: string; size?: number }) {
+  const src = crestPath(teamName);
+  if (!src) return null;
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={src} alt="" className="crest" width={size} height={size} />;
 }
 
 function MatchRow({ m, kind }: { m: Fixture; kind: "upcoming" | "past" }) {
   const teamsContent =
     kind === "past" && m.score ? (
       <>
-        {strip(m.homeTeam)}{" "}
+        <Crest teamName={m.homeTeam} /> {displayName(m.homeTeam)}{" "}
         <span className="score">
           {m.score[0]} — {m.score[1]}
         </span>{" "}
-        {strip(m.awayTeam)}
+        <Crest teamName={m.awayTeam} /> {displayName(m.awayTeam)}
       </>
-    ) : m.napoliIsHome ? (
-      `Napoli vs ${strip(m.opponent)}`
     ) : (
-      `${strip(m.opponent)} vs Napoli`
+      <>
+        <Crest teamName={m.homeTeam} /> {displayName(m.homeTeam)} vs{" "}
+        <Crest teamName={m.awayTeam} /> {displayName(m.awayTeam)}
+      </>
     );
   return (
     <li className="match">
@@ -75,9 +79,9 @@ export default async function Calendario() {
         {hero ? (
           <div className="hero-card">
             <div className="hero-teams">
-              {hero.napoliIsHome
-                ? `Napoli vs ${strip(hero.opponent)}`
-                : `${strip(hero.opponent)} vs Napoli`}
+              <Crest teamName={hero.homeTeam} size={42} /> {displayName(hero.homeTeam)}
+              {" vs "}
+              <Crest teamName={hero.awayTeam} size={42} /> {displayName(hero.awayTeam)}
             </div>
             <div className="hero-meta">
               {dow(hero.utcISO)} {dm(hero.utcISO)}

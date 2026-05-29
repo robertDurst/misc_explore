@@ -112,3 +112,7 @@ a{ color:inherit; }
 
 /* score pops in gold, with tabular figures so columns align */
 .score{ color:var(--gold); font-variant-numeric:tabular-nums; font-weight:700; }
+
+/* team crests (self-hosted from Wikimedia, /public/crests/) */
+.crest{ display:inline-block; vertical-align:-4px; margin-right:5px; object-fit:contain; }
+.hero-teams .crest{ vertical-align:-9px; margin-right:8px; }
