@@ -1,4 +1,4 @@
-import { SQUAD, SQUAD_GROUPS, ageFromDob, type Player } from "@/lib/squad";
+import { SQUAD, SQUAD_GROUPS, ageFromDob, transferLine, type Player } from "@/lib/squad";
 
 // Daily ISR so ages tick over on birthdays even between deploys.
 export const revalidate = 86400;
@@ -10,6 +10,7 @@ export const metadata = {
 
 function PlayerCard({ p }: { p: Player }) {
   const age = ageFromDob(p.dob);
+  const transfer = transferLine(p);
   return (
     <li className="player-card">
       <div className="player-name">{p.name}</div>
@@ -21,6 +22,7 @@ function PlayerCard({ p }: { p: Player }) {
         <span className="dot">·</span>
         <span className="age">{age} años</span>
       </div>
+      {transfer && <div className="player-transfer">{transfer}</div>}
       {p.loanTo && (
         <div className="player-loan">→ Cedido a {p.loanTo}</div>
       )}
