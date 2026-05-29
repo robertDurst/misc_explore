@@ -13,6 +13,11 @@ function PlayerCard({ p }: { p: Player }) {
   const transfer = transferLine(p);
   return (
     <li className="player-card">
+      {p.shirtNumber !== undefined && (
+        <span className="player-number" aria-label={`Dorsal ${p.shirtNumber}`}>
+          {p.shirtNumber}
+        </span>
+      )}
       <div className="player-name">{p.name}</div>
       <div className="player-meta">
         <span className="role">{p.role}</span>
