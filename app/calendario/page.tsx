@@ -113,8 +113,8 @@ export default async function Calendario() {
           <p className="kicker">Forma · Últimos 5</p>
           <div className="form-pills" role="list" aria-label="Forma de los últimos 5 partidos">
             {form.map((r, i) => {
-              const label = r === "W" ? "G" : r === "D" ? "E" : "P";
-              const title = r === "W" ? "Ganado" : r === "D" ? "Empate" : "Perdido";
+              const label = r === "W" ? "V" : r === "D" ? "E" : "D";
+              const title = r === "W" ? "Victoria" : r === "D" ? "Empate" : "Derrota";
               return (
                 <span
                   key={i}

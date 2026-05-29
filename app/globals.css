@@ -117,9 +117,13 @@ a{ color:inherit; }
   display:inline-flex; align-items:center; justify-content:center;
   font-family:var(--font-fraunces),Georgia,serif;
   font-size:14px; font-weight:700; color:#fff; }
-.form-W{ background:#12A0D7; }
-.form-D{ background:#8a7a63; }
-.form-L{ background:#B6433A; }
+/* V = circle, azzurro (slightly darkened to pass WCAG AA on white letter) */
+.form-W{ background:#0E86B5; border-radius:50%; }
+/* E = rounded square (current), brand gold + espresso letter (gold + white fails contrast) */
+.form-D{ background:#C68A3E; color:#3A2A1E; }
+/* D = diamond, burnt red */
+.form-L{ background:#B6433A; border-radius:0;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
 
 /* score pops in gold, with tabular figures so columns align */
 .score{ color:var(--gold); font-variant-numeric:tabular-nums; font-weight:700; }
