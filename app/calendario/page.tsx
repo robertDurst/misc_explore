@@ -48,19 +48,14 @@ function MatchRow({ m, kind }: { m: Fixture; kind: "upcoming" | "past" }) {
   return (
     <li className="match">
       <div className="match-date">
-        <span className="dow">{dow(m.utcISO)}</span>
-        <span className="dm">{dm(m.utcISO)}</span>
+        {dow(m.utcISO)} {dm(m.utcISO)}
       </div>
-      <div className="match-teams">
-        <span className="side home">
-          <Crest teamName={m.homeTeam} />
-          <span className="team-name">{displayName(m.homeTeam)}</span>
-        </span>
-        <span className="middle">{middle}</span>
-        <span className="side away">
-          <span className="team-name">{displayName(m.awayTeam)}</span>
-          <Crest teamName={m.awayTeam} />
-        </span>
+      <div className="match-line">
+        <Crest teamName={m.homeTeam} />
+        <span className="team-name">{displayName(m.homeTeam)}</span>
+        {middle}
+        <span className="team-name">{displayName(m.awayTeam)}</span>
+        <Crest teamName={m.awayTeam} />
       </div>
       <div className="match-comp">Serie A {shortRound(m.round)}</div>
     </li>

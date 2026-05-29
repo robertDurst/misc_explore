@@ -81,49 +81,46 @@ a{ color:inherit; }
   font-size:24px; margin:28px 0 12px; }
 .match-list{ list-style:none; padding:0; margin:0;
   display:flex; flex-direction:column; gap:6px; }
-.match{ display:grid; grid-template-columns: 64px 1fr auto;
-  gap:16px; align-items:center; padding:12px 16px;
-  border:1px solid rgba(0,60,130,.10); border-radius:10px; background:#FBF4E6; }
-.match-date{ display:flex; flex-direction:column; line-height:1.1; }
-.match-date .dow{ font-size:11px; text-transform:uppercase;
-  letter-spacing:1px; color:var(--gold); font-weight:600; }
-.match-date .dm{ font-size:15px; font-weight:600; margin-top:2px; }
-.match-teams{
-  display:grid; grid-template-columns: 1fr 64px 1fr;
-  align-items:center; gap:12px;
-  font-family:var(--font-fraunces),Georgia,serif;
-  font-size:17px; font-weight:600;
-}
-.match-teams .side{ display:flex; align-items:center; gap:6px; min-width:0; }
-.match-teams .side.home{ justify-content:flex-end; }
-.match-teams .side.away{ justify-content:flex-start; }
-.match-teams .middle{ text-align:center; white-space:nowrap; }
-.match-teams .vs{ opacity:.55; font-style:italic; font-weight:500; }
-.match-teams .team-name{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.match-comp{ font-size:11px; letter-spacing:1px; text-transform:uppercase;
-  color:var(--gold); font-weight:600; white-space:nowrap; }
+/* Single-line row: paper-tone card, gold score is the inline anchor */
+.match{ display:grid; grid-template-columns: 80px 1fr auto;
+  gap:18px; align-items:baseline; padding:14px 18px;
+  border:1px solid rgba(0,60,130,.06); border-radius:10px; background:#FBF4E6; }
+.match-date{ font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:12px; font-weight:600; line-height:1.2;
+  letter-spacing:.04em; text-transform:uppercase; color:#3A2A1E; }
+.match-line{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:17px; font-weight:600; color:#003C82;
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap; min-width:0; }
+.match-line .team-name{ white-space:nowrap; }
+.match-line .crest{ width:18px; height:18px; margin:0; vertical-align:0; }
+.match-line .score{ color:var(--gold); font-variant-numeric:tabular-nums;
+  font-weight:700; margin:0 4px; }
+.match-line .vs{ opacity:.55; font-style:italic; font-weight:500; margin:0 4px; }
+.match-comp{ font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:11px; font-weight:500; letter-spacing:.06em;
+  text-transform:uppercase; color:#3A2A1E; opacity:.65;
+  white-space:nowrap; }
 .local-time{ opacity:.85; }
 
 @media (max-width: 560px){
-  .match{ grid-template-columns: 56px 1fr; }
-  .match-comp{ grid-column: 2; font-size:10px; opacity:.85; }
-  .match-teams{ font-size:14px; gap:8px; grid-template-columns: 1fr 52px 1fr; }
+  .match{ grid-template-columns: 68px 1fr; gap:12px; padding:12px 14px; }
+  .match-comp{ grid-column: 2; font-size:10px; opacity:.65; }
+  .match-line{ font-size:15px; gap:8px; }
+  .match-line .crest{ width:16px; height:16px; }
 }
 
 /* form (last 5 W/D/L pills) */
 .form-section{ margin:6px 0 28px; }
 .form-pills{ display:flex; gap:6px; }
-.form-pill{ width:32px; height:32px; border-radius:7px;
+.form-pill{ width:28px; height:28px; border-radius:7px;
   display:inline-flex; align-items:center; justify-content:center;
   font-family:var(--font-fraunces),Georgia,serif;
-  font-size:14px; font-weight:700; color:#fff; }
-/* V = circle, azzurro (slightly darkened to pass WCAG AA on white letter) */
-.form-W{ background:#0E86B5; border-radius:50%; }
-/* E = rounded square (current), brand gold + espresso letter (gold + white fails contrast) */
-.form-D{ background:#C68A3E; color:#3A2A1E; }
-/* D = diamond, burnt red */
-.form-L{ background:#B6433A; border-radius:0;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+  font-size:13px; font-weight:700; color:#F3E9D8; }
+/* Uniform shape, brand-only colors — cohesion over redundancy.
+   Espresso for D reads as ink/weight; lives in the brand palette. */
+.form-W{ background:#12A0D7; }
+.form-D{ background:#C68A3E; }
+.form-L{ background:#3A2A1E; }
 
 /* score pops in gold, with tabular figures so columns align */
 .score{ color:var(--gold); font-variant-numeric:tabular-nums; font-weight:700; }
