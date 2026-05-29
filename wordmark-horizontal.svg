@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 300" width="940" height="300" role="img" aria-label="Cafe Azzurro 1926 horizontal lockup">
+  <style><![CDATA[@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap');]]></style>
+  <!-- mark (clean badge) -->
+  <g transform="translate(6,18) scale(0.66)">
+    <circle cx="200" cy="200" r="172" fill="#F3E9D8"/>
+    <circle cx="200" cy="200" r="158" fill="none" stroke="#003C82" stroke-width="6"/>
+    <g fill="none" stroke="#003C82" stroke-width="5" stroke-linecap="round" opacity="0.8">
+      <path d="M190,120 C184,108 196,102 190,90"/>
+      <path d="M210,122 C204,110 216,104 210,92"/>
+    </g>
+    <path d="M156,176 L118,190 L118,222 L156,236 Z" fill="#5A3A22"/>
+    <path d="M156,176 L118,190 L118,222 L156,236 Z" fill="none" stroke="#003C82" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M238,160 L276,154 L246,180 Z" fill="#12A0D7"/>
+    <path d="M238,160 L276,154 L246,180 Z" fill="none" stroke="#003C82" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M190,154 L158,154 L168,206 L190,206 Z" fill="#12A0D7"/>
+    <path d="M190,154 L242,154 L232,206 L190,206 Z" fill="#0C6E96"/>
+    <path d="M158,154 L242,154 L232,206 L168,206 Z" fill="none" stroke="#003C82" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M178,154 L222,154 L216,138 L184,138 Z" fill="#003C82"/>
+    <circle cx="200" cy="128" r="11" fill="#C68A3E"/>
+    <circle cx="200" cy="128" r="11" fill="none" stroke="#003C82" stroke-width="3"/>
+    <rect x="166" y="204" width="68" height="10" fill="#003C82"/>
+    <path d="M192,214 L166,214 L140,294 L192,294 Z" fill="#12A0D7"/>
+    <path d="M192,214 L234,214 L260,294 L192,294 Z" fill="#0C6E96"/>
+    <path d="M166,214 L234,214 L260,294 L140,294 Z" fill="none" stroke="#003C82" stroke-width="4" stroke-linejoin="round"/>
+    <rect x="146" y="294" width="108" height="12" fill="#003C82"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="298" y="158" font-family="'Fraunces', Georgia, serif" font-weight="700" font-size="74" letter-spacing="0.5"><tspan fill="#003C82">Café </tspan><tspan fill="#12A0D7">Azzurro</tspan></text>
+  <line x1="300" y1="186" x2="838" y2="186" stroke="#C68A3E" stroke-width="2"/>
+  <text x="300" y="218" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" letter-spacing="6" fill="#003C82">NÁPOLES · EN ESPAÑOL · EST. 1926</text>
+</svg>

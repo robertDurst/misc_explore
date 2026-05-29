@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Cafe Azzurro - moka, heavy retro print">
+  <defs>
+    <!-- inky / hand-printed rough edges -->
+    <filter id="rough" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- paper grain -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0"/>
+    </filter>
+    <!-- navy halftone screen (the 'shaded' ink) -->
+    <pattern id="ht" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <circle cx="2" cy="2" r="1.5" fill="#003C82" fill-opacity="0.55"/>
+    </pattern>
+    <!-- warm gold halftone wash -->
+    <pattern id="htg" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-10)">
+      <circle cx="2.2" cy="2.2" r="1.3" fill="#C68A3E" fill-opacity="0.4"/>
+    </pattern>
+    <clipPath id="clip"><circle cx="200" cy="200" r="172"/></clipPath>
+    <!-- steam dissipates (fades) as it rises -->
+    <linearGradient id="steamfade" gradientUnits="userSpaceOnUse" x1="200" y1="130" x2="200" y2="64">
+      <stop offset="0" stop-color="#003C82" stop-opacity="0.7"/>
+      <stop offset="0.5" stop-color="#003C82" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#003C82" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- paper -->
+  <circle cx="200" cy="200" r="172" fill="#F3E9D8"/>
+
+  <!-- ===== inked artwork (rough-edged) ===== -->
+  <g filter="url(#rough)">
+
+    <!-- handle (brown) -->
+    <path d="M156,176 L118,190 L118,222 L156,236 Z" fill="#5A3A22"/>
+
+    <!-- AZZURRO INK (offset down-right = misregister) -->
+    <g transform="translate(1.5,1.5)">
+      <path d="M238,160 L276,154 L246,180 Z" fill="#12A0D7"/>
+      <path d="M158,154 L242,154 L232,206 L168,206 Z" fill="#12A0D7"/>
+      <path d="M166,214 L234,214 L260,294 L140,294 Z" fill="#12A0D7"/>
+      <!-- halftone shading on the right side of each chamber -->
+      <path d="M200,154 L242,154 L232,206 L200,206 Z" fill="url(#ht)"/>
+      <path d="M200,214 L234,214 L260,294 L200,294 Z" fill="url(#ht)"/>
+      <!-- warm halftone wash low on the base -->
+      <path d="M152,260 L248,260 L260,294 L140,294 Z" fill="url(#htg)"/>
+    </g>
+
+    <!-- NAVY KEY INK (linework, on register) -->
+    <path d="M238,160 L276,154 L246,180 Z" fill="none" stroke="#003C82" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M158,154 L242,154 L232,206 L168,206 Z" fill="none" stroke="#003C82" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M166,214 L234,214 L260,294 L140,294 Z" fill="none" stroke="#003C82" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M156,176 L118,190 L118,222 L156,236 Z" fill="none" stroke="#003C82" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M178,154 L222,154 L216,138 L184,138 Z" fill="#003C82"/>
+    <rect x="166" y="204" width="68" height="10" fill="#003C82"/>
+    <rect x="146" y="294" width="108" height="12" fill="#003C82"/>
+
+    <!-- steam: wavy, tapering, fading wisps -->
+    <g fill="none" stroke="url(#steamfade)" stroke-linecap="round">
+      <path d="M184,128 C178,117 190,109 183,97 C177,87 186,81 182,73" stroke-width="3.5"/>
+      <path d="M200,130 C193,117 207,108 199,95 C192,83 205,77 200,67" stroke-width="5"/>
+      <path d="M216,128 C210,118 223,110 215,99 C210,90 218,85 214,79" stroke-width="3"/>
+    </g>
+
+    <!-- knob (gold, slight offset the other way) -->
+    <circle cx="198.5" cy="127" r="11" fill="#C68A3E"/>
+    <circle cx="200" cy="128" r="11" fill="none" stroke="#003C82" stroke-width="3"/>
+
+    <!-- single rough hand-stamped ink ring (replaces clean keyline) -->
+    <circle cx="200" cy="200" r="158" fill="none" stroke="#003C82" stroke-width="5"/>
+    <circle cx="200" cy="200" r="158" fill="none" stroke="#C68A3E" stroke-width="1.5" transform="translate(2,2)"/>
+  </g>
+
+  <!-- paper grain over everything (clipped to badge) -->
+  <g clip-path="url(#clip)"><rect x="0" y="0" width="400" height="400" filter="url(#grain)" opacity="0.5"/></g>
+</svg>

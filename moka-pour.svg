@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Cafe Azzurro - moka pouring into a mug">
+  <!-- paper field + vintage keyline -->
+  <circle cx="200" cy="200" r="172" fill="#F3E9D8"/>
+  <circle cx="202" cy="202" r="162" fill="none" stroke="#C68A3E" stroke-width="3"/>
+  <circle cx="200" cy="200" r="162" fill="none" stroke="#003C82" stroke-width="4"/>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#003C82" stroke-width="2"/>
+
+  <!-- tilted moka (pouring) -->
+  <g transform="translate(150,212) rotate(34)">
+    <rect x="-32" y="-8" width="64" height="9" fill="#003C82"/>
+    <path d="M-26,-98 C-54,-94 -54,-66 -26,-62" fill="none" stroke="#3A2A1E" stroke-width="9" stroke-linecap="round"/>
+    <path d="M-30,-8 L30,-8 L20,-66 L-20,-66 Z" fill="#12A0D7" stroke="#003C82" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="-22" y="-72" width="44" height="9" fill="#003C82"/>
+    <path d="M20,-110 L48,-116 L26,-94 Z" fill="#0C6E96" stroke="#003C82" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M-20,-72 L20,-72 L26,-118 L-26,-118 Z" fill="#12A0D7" stroke="#003C82" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M-18,-118 L18,-118 L14,-130 L-14,-130 Z" fill="#003C82"/>
+    <circle cx="0" cy="-138" r="8" fill="#C68A3E"/>
+    <circle cx="0" cy="-138" r="8" fill="none" stroke="#003C82" stroke-width="2"/>
+  </g>
+
+  <!-- coffee stream -->
+  <path d="M239,148 C250,176 262,206 273,228" fill="none" stroke="#3A2A1E" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- mug body -->
+  <path d="M244,232 L306,232 L299,290 Q275,301 251,290 Z" fill="#12A0D7" stroke="#003C82" stroke-width="3" stroke-linejoin="round"/>
+  <!-- mug handle -->
+  <path d="M306,245 C330,249 330,279 306,283" fill="none" stroke="#003C82" stroke-width="11" stroke-linecap="round"/>
+  <path d="M306,247 C326,251 326,277 306,281" fill="none" stroke="#12A0D7" stroke-width="6" stroke-linecap="round"/>
+  <!-- coffee surface -->
+  <ellipse cx="275" cy="232" rx="32" ry="7" fill="#3A2A1E"/>
+  <!-- steam off the mug -->
+  <g fill="none" stroke="#003C82" stroke-width="4" stroke-linecap="round">
+    <path d="M266,224 C260,212 272,206 266,194"/>
+    <path d="M285,224 C279,212 291,206 285,194"/>
+  </g>
+</svg>
