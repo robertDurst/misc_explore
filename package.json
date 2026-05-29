@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "validate": "node scripts/validate-squad.mjs",
+    "build": "npm run validate && next build",
     "start": "next start"
   },
   "dependencies": {

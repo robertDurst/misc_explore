@@ -1,4 +1,4 @@
-import { SQUAD, SQUAD_GROUPS, ageFromDob, transferLine, type Player } from "@/lib/squad";
+import { getSquad, SQUAD_GROUPS, ageFromDob, transferLine, type Player } from "@/lib/squad";
 
 // Daily ISR so ages tick over on birthdays even between deploys.
 export const revalidate = 86400;
@@ -36,13 +36,14 @@ function PlayerCard({ p }: { p: Player }) {
 }
 
 export default function Plantilla() {
+  const squad = getSquad();
   return (
     <main className="container">
       <h1 className="page-title">Plantilla</h1>
       <p className="page-sub">Temporada 2025-26</p>
 
       {SQUAD_GROUPS.map((group) => {
-        const players = SQUAD.filter((p) => p.position === group);
+        const players = squad.filter((p) => p.position === group);
         if (players.length === 0) return null;
         return (
           <section key={group} className="squad-section">
@@ -57,7 +58,7 @@ export default function Plantilla() {
       })}
 
       <p className="plantilla-note">
-        Plantilla aproximada · {SQUAD.length} jugadores · datos curados a mano por ahora.
+        Plantilla aproximada · {squad.length} jugadores · datos curados en content/jugadores/*.md.
       </p>
     </main>
   );
