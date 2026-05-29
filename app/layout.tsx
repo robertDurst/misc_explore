@@ -28,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="links">
             <Link href="/">Inicio</Link>
             <Link href="/calendario">Calendario</Link>
+            <Link href="/plantilla">Plantilla</Link>
             <Link href="/noticias">Noticias</Link>
           </div>
         </header>

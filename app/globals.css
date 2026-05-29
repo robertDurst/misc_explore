@@ -125,6 +125,31 @@ a{ color:inherit; }
 /* score pops in gold, with tabular figures so columns align */
 .score{ color:var(--gold); font-variant-numeric:tabular-nums; font-weight:700; }
 
+/* plantilla */
+.page-sub{ font-family:ui-sans-serif,system-ui,sans-serif; font-size:12px;
+  letter-spacing:.04em; text-transform:uppercase; color:var(--gold);
+  font-weight:600; margin:-12px 0 24px; }
+.squad-section{ margin-bottom:28px; }
+.squad-list{ list-style:none; padding:0; margin:0;
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:8px; }
+.player-card{ background:#FBF4E6; border:1px solid rgba(0,60,130,.06);
+  border-radius:10px; padding:14px 18px; }
+.player-name{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:18px; font-weight:600; color:#003C82; line-height:1.2; }
+.player-meta{ margin-top:6px; font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:12px; letter-spacing:.04em; color:#3A2A1E;
+  display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.player-meta .role{ text-transform:uppercase; color:var(--gold);
+  font-weight:600; letter-spacing:.06em; }
+.player-meta .dot{ opacity:.4; }
+.player-meta .flag{ font-size:14px; line-height:1; }
+.player-meta .nationality{ opacity:.75; }
+.player-meta .age{ opacity:.65; }
+.plantilla-note{ margin-top:28px; font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:11px; letter-spacing:.04em; color:#3A2A1E; opacity:.55;
+  text-align:center; font-style:italic; }
+
 /* team crests (self-hosted from Wikimedia, /public/crests/) */
 .crest{ display:inline-block; vertical-align:-4px; margin-right:5px; object-fit:contain; }
 .hero-teams .crest{ vertical-align:-9px; margin-right:8px; }
