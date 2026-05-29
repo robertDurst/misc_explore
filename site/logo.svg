@@ -20,7 +20,7 @@
     </pattern>
     <clipPath id="clip"><circle cx="200" cy="200" r="172"/></clipPath>
     <!-- steam dissipates (fades) as it rises -->
-    <linearGradient id="steamfade" gradientUnits="userSpaceOnUse" x1="200" y1="130" x2="200" y2="64">
+    <linearGradient id="steamfade" gradientUnits="userSpaceOnUse" x1="200" y1="108" x2="200" y2="42">
       <stop offset="0" stop-color="#003C82" stop-opacity="0.7"/>
       <stop offset="0.5" stop-color="#003C82" stop-opacity="0.34"/>
       <stop offset="1" stop-color="#003C82" stop-opacity="0"/>
@@ -59,9 +59,9 @@
 
     <!-- steam: wavy, tapering, fading wisps -->
     <g fill="none" stroke="url(#steamfade)" stroke-linecap="round">
-      <path d="M184,128 C178,117 190,109 183,97 C177,87 186,81 182,73" stroke-width="3.5"/>
-      <path d="M200,130 C193,117 207,108 199,95 C192,83 205,77 200,67" stroke-width="5"/>
-      <path d="M216,128 C210,118 223,110 215,99 C210,90 218,85 214,79" stroke-width="3"/>
+      <path d="M184,106 C178,95 190,87 183,75 C177,65 186,59 182,51" stroke-width="3.5"/>
+      <path d="M200,108 C193,95 207,86 199,73 C192,61 205,55 200,45" stroke-width="5"/>
+      <path d="M216,106 C210,96 223,88 215,77 C210,68 218,63 214,57" stroke-width="3"/>
     </g>
 
     <!-- knob (gold, slight offset the other way) -->

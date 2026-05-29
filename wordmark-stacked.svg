@@ -5,8 +5,8 @@
     <circle cx="200" cy="200" r="172" fill="#F3E9D8"/>
     <circle cx="200" cy="200" r="158" fill="none" stroke="#003C82" stroke-width="6"/>
     <g fill="none" stroke="#003C82" stroke-width="5" stroke-linecap="round" opacity="0.8">
-      <path d="M190,120 C184,108 196,102 190,90"/>
-      <path d="M210,122 C204,110 216,104 210,92"/>
+      <path d="M190,104 C184,92 196,86 190,74"/>
+      <path d="M210,106 C204,94 216,88 210,76"/>
     </g>
     <path d="M156,176 L118,190 L118,222 L156,236 Z" fill="#5A3A22"/>
     <path d="M156,176 L118,190 L118,222 L156,236 Z" fill="none" stroke="#003C82" stroke-width="3" stroke-linejoin="round"/>
@@ -28,5 +28,5 @@
   <!-- wordmark -->
   <text x="280" y="508" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-weight="700" font-size="62" letter-spacing="0.5"><tspan fill="#003C82">Café </tspan><tspan fill="#12A0D7">Azzurro</tspan></text>
   <line x1="124" y1="536" x2="436" y2="536" stroke="#C68A3E" stroke-width="2"/>
-  <text x="280" y="568" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="19" letter-spacing="5" fill="#003C82">NÁPOLES · EN ESPAÑOL · EST. 1926</text>
+  <text x="280" y="568" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="19" letter-spacing="4" fill="#003C82">NAPOLI · DAL 1926 · EN ESPAÑOL</text>
 </svg>

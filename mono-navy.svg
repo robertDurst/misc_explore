@@ -4,8 +4,8 @@
     <circle cx="200" cy="200" r="158" fill="none" stroke-width="6"/>
     <!-- steam -->
     <g fill="none" stroke-linecap="round" stroke-width="5">
-      <path d="M190,120 C184,108 196,102 190,90"/>
-      <path d="M210,122 C204,110 216,104 210,92"/>
+      <path d="M190,104 C184,92 196,86 190,74"/>
+      <path d="M210,106 C204,94 216,88 210,76"/>
     </g>
     <!-- handle -->
     <path d="M156,176 L118,190 L118,222 L156,236 Z" fill="none" stroke-width="6"/>
