@@ -61,3 +61,40 @@ a{ color:inherit; }
 /* footer */
 .site-footer{ padding:18px; text-align:center; font-size:11px; letter-spacing:1px;
   color:#8a7a63; border-top:1px solid rgba(0,60,130,.12); }
+
+/* calendario */
+.kicker{ font-size:11px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin:0 0 10px; font-weight:600; }
+.hero-match{ margin:0 0 28px; }
+.hero-card{ background:#FBF4E6; border:1px solid rgba(0,60,130,.14);
+  border-radius:14px; padding:22px 24px; }
+.hero-teams{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:clamp(26px,4.5vw,38px); font-weight:700; line-height:1.1; }
+.hero-meta{ margin-top:10px; font-size:14px; }
+.hero-meta time{ font-weight:600; }
+.hero-comp{ margin-top:8px; font-size:11px; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--gold); font-weight:600; }
+.off-season{ background:#FBF4E6; border:1px dashed rgba(0,60,130,.22);
+  border-radius:14px; padding:20px 22px; font-style:italic; opacity:.85; margin:0; }
+
+.section-title{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:24px; margin:28px 0 12px; }
+.match-list{ list-style:none; padding:0; margin:0;
+  display:flex; flex-direction:column; gap:6px; }
+.match{ display:grid; grid-template-columns: 64px 1fr auto;
+  gap:16px; align-items:center; padding:12px 16px;
+  border:1px solid rgba(0,60,130,.10); border-radius:10px; background:#FBF4E6; }
+.match-date{ display:flex; flex-direction:column; line-height:1.1; }
+.match-date .dow{ font-size:11px; text-transform:uppercase;
+  letter-spacing:1px; color:var(--gold); font-weight:600; }
+.match-date .dm{ font-size:15px; font-weight:600; margin-top:2px; }
+.match-teams{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:17px; font-weight:600; }
+.match-comp{ font-size:11px; letter-spacing:1px; text-transform:uppercase;
+  color:var(--gold); font-weight:600; white-space:nowrap; }
+.local-time{ opacity:.85; }
+
+@media (max-width: 560px){
+  .match{ grid-template-columns: 56px 1fr; }
+  .match-comp{ grid-column: 2; font-size:10px; opacity:.85; }
+}
