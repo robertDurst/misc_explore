@@ -98,3 +98,17 @@ a{ color:inherit; }
   .match{ grid-template-columns: 56px 1fr; }
   .match-comp{ grid-column: 2; font-size:10px; opacity:.85; }
 }
+
+/* form (last 5 W/D/L pills) */
+.form-section{ margin:6px 0 28px; }
+.form-pills{ display:flex; gap:6px; }
+.form-pill{ width:32px; height:32px; border-radius:7px;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:var(--font-fraunces),Georgia,serif;
+  font-size:14px; font-weight:700; color:#fff; }
+.form-W{ background:#12A0D7; }
+.form-D{ background:#8a7a63; }
+.form-L{ background:#B6433A; }
+
+/* score pops in gold, with tabular figures so columns align */
+.score{ color:var(--gold); font-variant-numeric:tabular-nums; font-weight:700; }

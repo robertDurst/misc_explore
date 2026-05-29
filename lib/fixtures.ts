@@ -104,8 +104,18 @@ function normalize(raw: RawMatch, season: string): Fixture | null {
 export type CalendarioData = {
   upcoming: Fixture[];
   past: Fixture[];
+  form: ("W" | "D" | "L")[]; // oldest -> newest, up to 5
   upcomingSeasonLabel: string;
 };
+
+function napoliResult(f: Fixture): "W" | "D" | "L" | null {
+  if (!f.score) return null;
+  const us = f.napoliIsHome ? f.score[0] : f.score[1];
+  const them = f.napoliIsHome ? f.score[1] : f.score[0];
+  if (us > them) return "W";
+  if (us < them) return "L";
+  return "D";
+}
 
 export async function getCalendario(): Promise<CalendarioData> {
   const all: Fixture[] = [];
@@ -125,5 +135,11 @@ export async function getCalendario(): Promise<CalendarioData> {
   const past = all
     .filter((f) => f.score !== null || new Date(f.utcISO).getTime() <= now - TWO_HOURS)
     .sort((a, b) => b.utcISO.localeCompare(a.utcISO));
-  return { upcoming, past, upcomingSeasonLabel: SEASONS[0] };
+  const form = past
+    .filter((f) => f.score !== null)
+    .slice(0, 5)
+    .map(napoliResult)
+    .filter((r): r is "W" | "D" | "L" => r !== null)
+    .reverse(); // oldest on the left, newest on the right
+  return { upcoming, past, form, upcomingSeasonLabel: SEASONS[0] };
 }

@@ -34,26 +34,34 @@ function shortRound(r: string | null) {
 }
 
 function MatchRow({ m, kind }: { m: Fixture; kind: "upcoming" | "past" }) {
-  const teamsLine =
-    kind === "past" && m.score
-      ? `${strip(m.homeTeam)} ${m.score[0]} — ${m.score[1]} ${strip(m.awayTeam)}`
-      : m.napoliIsHome
-      ? `Napoli vs ${strip(m.opponent)}`
-      : `${strip(m.opponent)} vs Napoli`;
+  const teamsContent =
+    kind === "past" && m.score ? (
+      <>
+        {strip(m.homeTeam)}{" "}
+        <span className="score">
+          {m.score[0]} — {m.score[1]}
+        </span>{" "}
+        {strip(m.awayTeam)}
+      </>
+    ) : m.napoliIsHome ? (
+      `Napoli vs ${strip(m.opponent)}`
+    ) : (
+      `${strip(m.opponent)} vs Napoli`
+    );
   return (
     <li className="match">
       <div className="match-date">
         <span className="dow">{dow(m.utcISO)}</span>
         <span className="dm">{dm(m.utcISO)}</span>
       </div>
-      <div className="match-teams">{teamsLine}</div>
+      <div className="match-teams">{teamsContent}</div>
       <div className="match-comp">Serie A {shortRound(m.round)}</div>
     </li>
   );
 }
 
 export default async function Calendario() {
-  const { upcoming, past, upcomingSeasonLabel } = await getCalendario();
+  const { upcoming, past, form, upcomingSeasonLabel } = await getCalendario();
   const hero = upcoming[0];
   const restUpcoming = upcoming.slice(1, 11);
   const recentPast = past.slice(0, 10);
@@ -92,6 +100,24 @@ export default async function Calendario() {
           </p>
         )}
       </section>
+
+      {form.length > 0 && (
+        <section className="form-section">
+          <p className="kicker">Forma · Últimos 5</p>
+          <div className="form-pills" role="list" aria-label="Forma de los últimos 5 partidos">
+            {form.map((r, i) => (
+              <span
+                key={i}
+                role="listitem"
+                className={`form-pill form-${r}`}
+                title={r === "W" ? "Victoria" : r === "D" ? "Empate" : "Derrota"}
+              >
+                {r}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
 
       {restUpcoming.length > 0 && (
         <section>
