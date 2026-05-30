@@ -16,7 +16,7 @@ Node 24+.
 
 ## Routes
 
-`/` · `/calendario` (ISR 6h) · `/plantilla` (ISR 24h) · `/la-carta` · `/noticias` · `/noticias/[slug]` · `/aviso-legal` · `/sitemap.xml` · `/robots.txt`
+`/` · `/calendario` (ISR 6h) · `/plantilla` (ISR 24h) · `/noticias` · `/noticias/[slug]` · `/aviso-legal` · `/sitemap.xml` · `/robots.txt`
 
 ## Authoring
 
@@ -27,7 +27,6 @@ Node 24+.
 title: "Título"
 date: 2026-05-29
 resumen: "Una línea (≤200 chars)."
-format: cortado   # optional: expreso | cortado | sobremesa
 ---
 Cuerpo en Markdown.
 ```

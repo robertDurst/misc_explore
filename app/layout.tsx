@@ -59,7 +59,6 @@ export default function RootLayout({
             <Link href="/">Inicio</Link>
             <Link href="/calendario">Calendario</Link>
             <Link href="/plantilla">Plantilla</Link>
-            <Link href="/la-carta">La Carta</Link>
             <Link href="/noticias">Noticias</Link>
           </nav>
         </header>
