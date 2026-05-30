@@ -1,0 +1,5 @@
+# CLAUDE.md
+
+## Squad sync (sync-squad)
+
+`scripts/sync-squad.ts` + `.github/workflows/sync-squad.yml` keep the Napoli roster in `content/jugadores/*.md` honest by pulling from API-Football every 12h. Only `shirtNumber` is auto-synced — that's the one field where the API is authoritative and changes legitimately each season. Everything else (DOB, role, position, name, nationality, joinedFrom, joinedYear, loanTo, contractEnd) stays hand-curated, because the API uses initials ("A. Meret"), spells club names differently, miscategorizes wingers as midfielders, and occasionally has wrong DOBs (it had Politano off by months). The script *reports* MANUAL drift on DOB so a human can spot real errors without auto-corrupting good data. New players from the API are also reported only — never auto-created — because the squad endpoint mixes Primavera kids with the first team. The free tier (api-sports.io) is rate-limited to 10 req/min and 100 req/day; the script throttles 6.5s between profile calls. The workflow needs `API_FOOTBALL_KEY` as a repo secret and "Allow GitHub Actions to create PRs" enabled in repo settings.
