@@ -56,6 +56,37 @@ a{ color:inherit; }
 .prose{ font-size:17px; line-height:1.7; }
 .prose p{ margin:0 0 16px; }
 .prose a{ color:var(--azzurro); }
+.prose h2{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:26px; margin:32px 0 12px; line-height:1.2; }
+
+/* tables inside articles — paper-card aesthetic matching .match list */
+.prose table{ width:100%; border-collapse:separate; border-spacing:0;
+  margin:8px 0 22px; font-size:15px; line-height:1.45;
+  background:#FBF4E6; border:1px solid rgba(0,60,130,.14);
+  border-radius:12px; overflow:hidden; display:table; }
+.prose thead th{ text-align:left; padding:11px 14px;
+  font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:11px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--gold);
+  background:rgba(0,60,130,.04);
+  border-bottom:1px solid rgba(0,60,130,.14); }
+.prose tbody td{ padding:11px 14px;
+  border-top:1px solid rgba(0,60,130,.06);
+  vertical-align:top; }
+.prose tbody tr:first-child td{ border-top:0; }
+/* first column reads as a date label — gold, tabular, compact */
+.prose tbody td:first-child{
+  font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:12px; font-weight:600; letter-spacing:.04em;
+  text-transform:uppercase; color:#3A2A1E;
+  font-variant-numeric:tabular-nums; white-space:nowrap; }
+
+/* horizontal scroll on narrow screens instead of squishing */
+@media (max-width: 640px){
+  .prose table{ display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .prose thead, .prose tbody, .prose tr{ display:table; width:100%; table-layout:fixed; }
+  .prose td, .prose th{ word-break:normal; }
+}
 .back{ display:inline-block; margin-top:28px; font-size:13px; letter-spacing:1px;
   text-transform:uppercase; color:var(--azzurro); text-decoration:none; }
 
