@@ -3,14 +3,31 @@ import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
+// Strip raw HTML blocks/inline from rendered Markdown so a contributor can't
+// inject <script>/<iframe>/onerror=. We control all content today, but the
+// moment a stranger PRs a post, this is the difference between editorial and
+// XSS. Embeds will arrive via MDX/components if/when we want them.
+marked.use({
+  renderer: {
+    html() {
+      return "";
+    },
+  },
+});
+
 const DIR = path.join(process.cwd(), "content", "noticias");
 
 export type PostMeta = {
   slug: string;
   title: string;
-  date: string;
+  date: string;       // YYYY-MM-DD
   resumen: string;
 };
+
+function normalizeDate(v: unknown): string {
+  if (v instanceof Date) return v.toISOString().slice(0, 10);
+  return typeof v === "string" ? v : "";
+}
 
 export function getAllPosts(): PostMeta[] {
   if (!fs.existsSync(DIR)) return [];
@@ -22,9 +39,9 @@ export function getAllPosts(): PostMeta[] {
       const { data } = matter(fs.readFileSync(path.join(DIR, f), "utf8"));
       return {
         slug,
-        title: data.title ?? slug,
-        date: data.date ?? "",
-        resumen: data.resumen ?? "",
+        title: typeof data.title === "string" ? data.title : slug,
+        date: normalizeDate(data.date),
+        resumen: typeof data.resumen === "string" ? data.resumen : "",
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -37,9 +54,9 @@ export async function getPost(slug: string) {
   return {
     meta: {
       slug,
-      title: data.title ?? slug,
-      date: data.date ?? "",
-      resumen: data.resumen ?? "",
+      title: typeof data.title === "string" ? data.title : slug,
+      date: normalizeDate(data.date),
+      resumen: typeof data.resumen === "string" ? data.resumen : "",
     } as PostMeta,
     html,
   };

@@ -5,7 +5,7 @@ import LocalTime from "./LocalTime";
 export const revalidate = 21600; // 6h
 
 export const metadata = {
-  title: "Calendario · Café Azzurro",
+  title: "Calendario",
   description: "Próximo partido del Napoli y resultados recientes en Serie A.",
 };
 

@@ -46,7 +46,8 @@ async function fetchSeason(season: string): Promise<RawFile | null> {
 
 // Italy DST handling without a date library: probe Intl for the offset
 // at a candidate UTC moment, then adjust.
-function italyOffsetMinutes(utcMoment: Date): number {
+// Exported for unit tests (lib/__tests__/fixtures.test.ts).
+export function italyOffsetMinutes(utcMoment: Date): number {
   const fmt = new Intl.DateTimeFormat("en-US", {
     timeZone: "Europe/Rome",
     year: "numeric", month: "2-digit", day: "2-digit",
@@ -62,7 +63,7 @@ function italyOffsetMinutes(utcMoment: Date): number {
   return (italyAsIfUtc - utcMoment.getTime()) / 60000;
 }
 
-function italyLocalToUtcISO(date: string, time: string): string {
+export function italyLocalToUtcISO(date: string, time: string): string {
   const [y, m, d] = date.split("-").map(Number);
   const [hh, mm] = time.split(":").map(Number);
   const guessUtc = new Date(Date.UTC(y, m - 1, d, hh, mm));

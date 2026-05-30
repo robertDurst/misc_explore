@@ -3,7 +3,7 @@ name: Scott McTominay
 role: MC
 position: Mediocampistas
 nationality: Escocia
-flag: 🏴
+flag: 🏴󠁧󠁢󠁳󠁣󠁴󠁿
 dob: 1996-12-08
 shirtNumber: 8
 joinedYear: 2024

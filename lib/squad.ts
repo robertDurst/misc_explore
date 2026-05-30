@@ -1,40 +1,21 @@
-// Squad data source-of-truth lives in content/jugadores/*.md (one YAML
-// frontmatter file per player). This module just reads, types, sorts.
-// Validation is enforced separately by scripts/validate-squad.mjs, which
-// runs as part of `npm run build`.
+// Reads content/jugadores/*.md, validates against the Zod schema in lib/schema.ts,
+// returns sorted Player[]. Validation also runs at build time via
+// scripts/validate-content.ts — pages can trust the data here.
 
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import {
+  PlayerFrontmatterSchema,
+  SQUAD_GROUPS,
+  type PlayerFrontmatter,
+  type SquadGroup,
+} from "./schema";
 
-export type SquadGroup =
-  | "Porteros"
-  | "Defensas"
-  | "Mediocampistas"
-  | "Delanteros"
-  | "Cedidos";
+export { SQUAD_GROUPS, type SquadGroup };
 
-export const SQUAD_GROUPS: SquadGroup[] = [
-  "Porteros",
-  "Defensas",
-  "Mediocampistas",
-  "Delanteros",
-  "Cedidos",
-];
-
-export type Player = {
+export type Player = PlayerFrontmatter & {
   slug: string;
-  name: string;
-  role: string;            // POR / DFC / LD / LI / MCD / MC / MCO / EI / ED / DC
-  position: SquadGroup;
-  nationality: string;
-  flag: string;
-  dob: string;             // YYYY-MM-DD
-  shirtNumber?: number;
-  joinedYear?: number;
-  joinedFrom?: string;
-  contractEnd?: number;
-  loanTo?: string;         // Cedidos only
   bio?: string;            // Markdown body — for future per-player pages
 };
 
@@ -43,27 +24,29 @@ const DIR = path.join(process.cwd(), "content", "jugadores");
 export function getSquad(): Player[] {
   if (!fs.existsSync(DIR)) return [];
 
-  const players = fs
+  const players: Player[] = fs
     .readdirSync(DIR)
     .filter((f) => f.endsWith(".md"))
-    .map((f): Player => {
+    .map((f) => {
       const slug = f.replace(/\.md$/, "");
       const raw = fs.readFileSync(path.join(DIR, f), "utf8");
       const { data, content } = matter(raw);
+      const result = PlayerFrontmatterSchema.safeParse(data);
+      if (!result.success) {
+        // Should never happen — validate-content.ts gates the build.
+        throw new Error(
+          `Invalid player frontmatter in ${f}: ${result.error.message}`,
+        );
+      }
       const bio = content.trim();
-      // YAML may auto-parse unquoted ISO dates to a Date object — normalize.
-      const dob = data.dob instanceof Date
-        ? data.dob.toISOString().slice(0, 10)
-        : data.dob;
       return {
         slug,
-        ...(data as Omit<Player, "slug" | "bio">),
-        dob,
+        ...result.data,
         ...(bio ? { bio } : {}),
       };
     });
 
-  // Stable order: group → shirt number ascending → alphabetical (Spanish locale)
+  // Stable order: group → shirt number ascending → alphabetical (es).
   return players.sort((a, b) => {
     const ga = SQUAD_GROUPS.indexOf(a.position);
     const gb = SQUAD_GROUPS.indexOf(b.position);

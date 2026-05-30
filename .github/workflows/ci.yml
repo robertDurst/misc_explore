@@ -15,7 +15,9 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - name: Validate squad data
+      - name: Validate content
         run: npm run validate
+      - name: Unit tests
+        run: npm run test
       - name: Build (Next.js)
         run: npm run build

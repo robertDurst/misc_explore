@@ -8,3 +8,8 @@ node_modules/
 out/
 next-env.d.ts
 *.tsbuildinfo
+
+# env (proactive — none committed today, gate now)
+.env
+.env.*
+!.env.example

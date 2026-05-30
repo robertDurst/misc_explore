@@ -16,9 +16,12 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const { meta } = await getPost(slug);
-    return { title: `${meta.title} · Café Azzurro` };
+    return {
+      title: meta.title,
+      description: meta.resumen || undefined,
+    };
   } catch {
-    return { title: "Café Azzurro" };
+    return { title: "Artículo" };
   }
 }
 

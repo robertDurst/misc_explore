@@ -4,8 +4,8 @@ import { getSquad, SQUAD_GROUPS, ageFromDob, transferLine, type Player } from "@
 export const revalidate = 86400;
 
 export const metadata = {
-  title: "Plantilla · Café Azzurro",
-  description: "La plantilla del Napoli para la temporada 2025-26.",
+  title: "Plantilla",
+  description: "La plantilla del Napoli para la temporada 2025-26 con datos de contrato, fichaje y dorsales.",
 };
 
 function PlayerCard({ p }: { p: Player }) {

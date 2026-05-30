@@ -61,6 +61,36 @@ a{ color:inherit; }
 /* footer */
 .site-footer{ padding:18px; text-align:center; font-size:11px; letter-spacing:1px;
   color:#8a7a63; border-top:1px solid rgba(0,60,130,.12); }
+.site-footer a{ color:#8a7a63; text-decoration:underline; text-underline-offset:2px; }
+.site-footer a:hover{ color:var(--navy); }
+
+/* skip link — keyboard accessibility, hidden until focused */
+.skip-link{
+  position:absolute; top:-48px; left:8px; z-index:100;
+  background:var(--navy); color:var(--cream);
+  padding:9px 16px; border-radius:6px;
+  font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:13px; font-weight:600; letter-spacing:.04em;
+  text-decoration:none;
+  transition:top .15s ease;
+}
+.skip-link:focus{ top:8px; outline:2px solid var(--gold); outline-offset:2px; }
+
+/* visible focus ring for keyboard users */
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--navy); outline-offset:3px; border-radius:2px;
+}
+
+/* high-contrast override — keep brand colors by default but pass WCAG when
+   the user opts in via OS (prefers-contrast: more) */
+@media (prefers-contrast: more){
+  .form-W{ background:#003C82; }   /* navy */
+  .form-D{ background:#3A2A1E; }   /* espresso */
+  .form-L{ background:#7A1E15; }   /* darker burnt red */
+  .kicker, .page-sub, .hero-comp, .match-comp, .player-meta .role,
+  .post-date, .form-section .kicker{ color:var(--navy); opacity:1; }
+  .site-footer{ color:var(--navy); }
+}
 
 /* calendario */
 .kicker{ font-size:11px; letter-spacing:3px; text-transform:uppercase;

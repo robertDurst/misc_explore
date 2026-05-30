@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 
-export const metadata = { title: "Noticias · Café Azzurro" };
+export const metadata = {
+  title: "Noticias",
+  description: "Noticias y análisis del SSC Napoli en español.",
+};
 
 export default function Noticias() {
   const posts = getAllPosts();
