@@ -2,26 +2,22 @@
   "name": "cafe-azzurro",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "validate": "tsx scripts/validate-content.ts",
+    "dev": "astro dev",
+    "check": "astro check",
     "test": "vitest run",
-    "build": "npm run validate && npm run test && next build",
-    "start": "next start"
+    "build": "npm run check && npm run test && astro build",
+    "start": "astro preview"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
-    "marked": "^14.1.2",
-    "next": "^15.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.1.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "tsx": "^4.22.3",
     "typescript": "^5.6.0",
     "vitest": "^4.1.7"
   }

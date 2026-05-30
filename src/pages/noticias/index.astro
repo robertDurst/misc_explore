@@ -1,0 +1,36 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("noticias"))
+  .map((entry) => ({
+    slug: entry.slug,
+    title: entry.data.title,
+    date: entry.data.date,
+    resumen: entry.data.resumen ?? "",
+  }))
+  .sort((a, b) => (a.date < b.date ? 1 : -1));
+---
+<Layout
+  title="Noticias"
+  description="Noticias y análisis del SSC Napoli en español."
+>
+  <main class="container">
+    <h1 class="page-title">Noticias</h1>
+    {posts.length === 0 ? (
+      <p class="empty">Próximamente.</p>
+    ) : (
+      <ul class="post-list">
+        {posts.map((p) => (
+          <li>
+            <a href={`/noticias/${p.slug}`}>
+              <span class="post-date">{p.date}</span>
+              <span class="post-title">{p.title}</span>
+              {p.resumen && <span class="post-sum">{p.resumen}</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </main>
+</Layout>

@@ -1,0 +1,151 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCalendario, type Fixture } from "@/lib/fixtures";
+import { crestPath, displayName } from "@/lib/crests";
+
+const { upcoming, past, form, upcomingSeasonLabel } = await getCalendario();
+const hero = upcoming[0];
+const restUpcoming = upcoming.slice(1, 11);
+const recentPast = past.slice(0, 5);
+
+const dowFmt = new Intl.DateTimeFormat("es", { weekday: "short", timeZone: "Europe/Rome" });
+const dmFmt = new Intl.DateTimeFormat("es", { day: "numeric", month: "short", timeZone: "Europe/Rome" });
+const dow = (iso: string) => dowFmt.format(new Date(iso));
+const dm = (iso: string) => dmFmt.format(new Date(iso));
+const shortRound = (r: string | null) => (r ? r.replace(/^Matchday /, "J") : "");
+
+const formLabel = (r: "W" | "D" | "L") => (r === "W" ? "V" : r === "D" ? "E" : "D");
+const formTitle = (r: "W" | "D" | "L") => (r === "W" ? "Victoria" : r === "D" ? "Empate" : "Derrota");
+
+type MatchKind = "upcoming" | "past";
+const middleFor = (m: Fixture, kind: MatchKind) =>
+  kind === "past" && m.score ? { type: "score" as const, text: `${m.score[0]} — ${m.score[1]}` } : { type: "vs" as const, text: "vs" };
+---
+<Layout
+  title="Calendario"
+  description="Próximo partido del Napoli y resultados recientes en Serie A."
+>
+  <main class="container">
+    <h1 class="page-title">Calendario</h1>
+
+    <section class="hero-match">
+      <p class="kicker">Próximo partido</p>
+      {hero ? (
+        <div class="hero-card">
+          <div class="hero-teams">
+            {crestPath(hero.homeTeam) && (
+              <img src={crestPath(hero.homeTeam)!} alt="" class="crest" width="42" height="42" />
+            )}
+            {displayName(hero.homeTeam)} vs{" "}
+            {crestPath(hero.awayTeam) && (
+              <img src={crestPath(hero.awayTeam)!} alt="" class="crest" width="42" height="42" />
+            )}
+            {displayName(hero.awayTeam)}
+          </div>
+          <div class="hero-meta">
+            {dow(hero.utcISO)} {dm(hero.utcISO)}
+            {hero.italyTime && (
+              <>
+                {" · "}
+                <time datetime={hero.utcISO}>{hero.italyTime}</time>
+                {" Nápoles"}
+                <span class="local-time" data-iso={hero.utcISO}></span>
+              </>
+            )}
+          </div>
+          <div class="hero-comp">Serie A {shortRound(hero.round)}</div>
+        </div>
+      ) : (
+        <p class="off-season">
+          Pretemporada — el calendario {upcomingSeasonLabel} se publica en julio.
+        </p>
+      )}
+    </section>
+
+    {form.length > 0 && (
+      <section class="form-section">
+        <p class="kicker">Forma · Últimos 5</p>
+        <div class="form-pills" role="list" aria-label="Forma de los últimos 5 partidos">
+          {form.map((r) => (
+            <span role="listitem" class={`form-pill form-${r}`} title={formTitle(r)}>
+              {formLabel(r)}
+            </span>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {restUpcoming.length > 0 && (
+      <section>
+        <h2 class="section-title">Próximos</h2>
+        <ul class="match-list">
+          {restUpcoming.map((m) => {
+            const mid = middleFor(m, "upcoming");
+            return (
+              <li class="match">
+                <div class="match-date">{dow(m.utcISO)} {dm(m.utcISO)}</div>
+                <div class="match-line">
+                  {crestPath(m.homeTeam) && (
+                    <img src={crestPath(m.homeTeam)!} alt="" class="crest" width="20" height="20" />
+                  )}
+                  <span class="team-name">{displayName(m.homeTeam)}</span>
+                  {mid.type === "score" ? <span class="score">{mid.text}</span> : <span class="vs">{mid.text}</span>}
+                  <span class="team-name">{displayName(m.awayTeam)}</span>
+                  {crestPath(m.awayTeam) && (
+                    <img src={crestPath(m.awayTeam)!} alt="" class="crest" width="20" height="20" />
+                  )}
+                </div>
+                <div class="match-comp">Serie A {shortRound(m.round)}</div>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
+
+    {recentPast.length > 0 && (
+      <section>
+        <h2 class="section-title">Resultados</h2>
+        <ul class="match-list">
+          {recentPast.map((m) => {
+            const mid = middleFor(m, "past");
+            return (
+              <li class="match">
+                <div class="match-date">{dow(m.utcISO)} {dm(m.utcISO)}</div>
+                <div class="match-line">
+                  {crestPath(m.homeTeam) && (
+                    <img src={crestPath(m.homeTeam)!} alt="" class="crest" width="20" height="20" />
+                  )}
+                  <span class="team-name">{displayName(m.homeTeam)}</span>
+                  {mid.type === "score" ? <span class="score">{mid.text}</span> : <span class="vs">{mid.text}</span>}
+                  <span class="team-name">{displayName(m.awayTeam)}</span>
+                  {crestPath(m.awayTeam) && (
+                    <img src={crestPath(m.awayTeam)!} alt="" class="crest" width="20" height="20" />
+                  )}
+                </div>
+                <div class="match-comp">Serie A {shortRound(m.round)}</div>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
+  </main>
+
+  <script>
+    // LocalTime island: turn data-iso into " · → HH:mm tu hora" for client.
+    document.querySelectorAll<HTMLElement>(".local-time[data-iso]").forEach((el) => {
+      try {
+        const iso = el.dataset.iso!;
+        const local = new Intl.DateTimeFormat(undefined, {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(new Date(iso));
+        el.textContent = ` · → ${local} tu hora`;
+      } catch {
+        /* leave empty */
+      }
+    });
+  </script>
+</Layout>

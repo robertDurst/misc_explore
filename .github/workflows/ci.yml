@@ -15,9 +15,9 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - name: Validate content
-        run: npm run validate
+      - name: Type check + content schema
+        run: npm run check
       - name: Unit tests
         run: npm run test
-      - name: Build (Next.js)
-        run: npm run build
+      - name: Build (Astro)
+        run: npx astro build

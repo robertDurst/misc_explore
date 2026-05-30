@@ -1,5 +1,6 @@
 :root{
   --cream:#F3E9D8; --navy:#003C82; --azzurro:#12A0D7; --gold:#C68A3E;
+  --font-fraunces: "Fraunces", Georgia, serif;
 }
 *{ box-sizing:border-box; }
 html,body{ height:100%; }

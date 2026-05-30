@@ -3,13 +3,12 @@ node_modules/
 .vercel
 *.log
 
-# next.js
-.next/
-out/
-next-env.d.ts
+# astro
+dist/
+.astro/
 *.tsbuildinfo
 
-# env (proactive — none committed today, gate now)
+# env
 .env
 .env.*
 !.env.example

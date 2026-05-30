@@ -36,7 +36,7 @@ function isNapoli(name: string): boolean {
 async function fetchSeason(season: string): Promise<RawFile | null> {
   const url = `https://raw.githubusercontent.com/openfootball/football.json/master/${season}/it.1.json`;
   try {
-    const res = await fetch(url, { next: { revalidate: 21600 } });
+    const res = await fetch(url);
     if (!res.ok) return null;
     return (await res.json()) as RawFile;
   } catch {

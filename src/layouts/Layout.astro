@@ -1,0 +1,73 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const SITE_TITLE = "Café Azzurro · El Napoli en español";
+const SITE_DESCRIPTION =
+  "El Napoli, contado en español. Calendario, plantilla, historia y análisis del SSC Napoli desde una perspectiva caribeña.";
+
+const { title, description, canonical } = Astro.props;
+const fullTitle = title ? `${title} · Café Azzurro` : SITE_TITLE;
+const desc = description ?? SITE_DESCRIPTION;
+const canonicalUrl = new URL(canonical ?? Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&display=swap"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Café Azzurro" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:image" content={new URL("/logo.svg", Astro.site).toString()} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Café Azzurro" />
+    <meta name="twitter:description" content="El Napoli, contado en español." />
+    <meta name="twitter:image" content={new URL("/logo.svg", Astro.site).toString()} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <header class="nav">
+      <a href="/" class="brand">
+        <img src="/logo.svg" alt="" width="34" height="34" />
+        Café <span>Azzurro</span>
+      </a>
+      <nav class="links" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/calendario">Calendario</a>
+        <a href="/plantilla">Plantilla</a>
+        <a href="/noticias">Noticias</a>
+      </nav>
+    </header>
+    <div id="main">
+      <slot />
+    </div>
+    <footer class="site-footer">
+      <span>Proyecto de fanáticos · sin afiliación oficial con la SSC Napoli</span>
+      <span aria-hidden="true"> · </span>
+      <a href="/aviso-legal">Aviso legal</a>
+    </footer>
+  </body>
+</html>

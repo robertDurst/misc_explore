@@ -1,0 +1,32 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+// Note: Astro renders raw HTML in markdown by default. If/when this repo
+// takes outside contributor PRs, configure markdown.rehypePlugins with
+// rehype-sanitize. Today all posts are author-controlled, so omit it.
+
+export async function getStaticPaths() {
+  const posts = await getCollection("noticias");
+  return posts.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props { entry: CollectionEntry<"noticias">; }
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, date, resumen } = entry.data;
+---
+<Layout title={title} description={resumen}>
+  <main class="container article">
+    <p class="post-date">{date}</p>
+    <h1>{title}</h1>
+    <div class="prose">
+      <Content />
+    </div>
+    <a class="back" href="/noticias">← Volver a noticias</a>
+  </main>
+</Layout>
