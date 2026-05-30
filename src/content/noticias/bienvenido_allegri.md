@@ -1,5 +1,5 @@
 ---
-title: "Allegre pa' Allegri?"
+title: "Alegre pa' Allegri?"
 date: 2026-05-29
 resumen: "Tenemos un nuevo entrenador desde AC Milan para reemplazar a Conte."
 ---
