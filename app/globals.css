@@ -192,3 +192,48 @@ a:focus-visible, button:focus-visible{
 /* team crests (self-hosted from Wikimedia, /public/crests/) */
 .crest{ display:inline-block; vertical-align:-4px; margin-right:5px; object-fit:contain; }
 .hero-teams .crest{ vertical-align:-9px; margin-right:8px; }
+
+/* La Carta — home strip (3 slot cards under the hero) */
+.carta-strip{ width:min(900px,92%); margin:56px auto 8px; text-align:center; }
+.carta-strip-kicker{ margin:0 0 14px; }
+.slot-cards{ list-style:none; padding:0; margin:0;
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; text-align:left; }
+.slot-card{ background:#FBF4E6; border:1px solid rgba(0,60,130,.10);
+  border-radius:12px; padding:18px 18px 16px; display:flex; flex-direction:column; gap:6px; }
+.slot-name{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:22px; font-weight:700; color:var(--navy); margin:0; line-height:1.1; }
+.slot-tagline{ font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:12px; color:#3A2A1E; opacity:.7; margin:0 0 8px; line-height:1.4; }
+.slot-link{ display:flex; flex-direction:column; gap:2px; text-decoration:none;
+  padding-top:8px; border-top:1px dashed rgba(0,60,130,.18); }
+.slot-latest-date{ font-size:11px; letter-spacing:1px; text-transform:uppercase;
+  color:var(--gold); font-weight:600; }
+.slot-latest-title{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:15px; font-weight:600; color:var(--navy); line-height:1.25; }
+.slot-link:hover .slot-latest-title{ color:var(--azzurro); }
+.slot-empty{ margin:8px 0 0; padding-top:8px; border-top:1px dashed rgba(0,60,130,.18);
+  font-size:12px; font-style:italic; color:#8a7a63; }
+.carta-strip-more{ display:inline-block; margin-top:18px; font-size:12px;
+  letter-spacing:2px; text-transform:uppercase; color:var(--azzurro);
+  text-decoration:none; border-bottom:2px solid var(--gold); padding-bottom:2px; }
+.carta-strip-more:hover{ color:var(--navy); }
+@media (max-width: 700px){
+  .slot-cards{ grid-template-columns:1fr; }
+}
+
+/* La Carta — dedicated /la-carta page sections */
+.carta-section{ margin:0 0 36px; }
+.carta-head{ margin:0 0 14px; }
+.carta-name{ font-family:var(--font-fraunces),Georgia,serif;
+  font-size:28px; font-weight:700; color:var(--navy); margin:0; line-height:1.1; }
+.carta-tagline{ font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:13px; color:#3A2A1E; opacity:.7; margin:4px 0 0; }
+
+/* format badge on /noticias list (small chip next to date) */
+.format-badge{ display:inline-block; margin-left:8px; padding:1px 7px;
+  border-radius:999px; font-size:10px; letter-spacing:1px; font-weight:700;
+  vertical-align:1px; background:var(--navy); color:var(--cream);
+  text-transform:uppercase; }
+.format-expreso{   background:var(--espresso, #3A2A1E); }
+.format-cortado{   background:var(--gold); color:#1f1407; }
+.format-sobremesa{ background:var(--azzurro); }

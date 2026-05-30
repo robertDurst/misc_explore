@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+import { POST_FORMAT_META } from "@/lib/schema";
 
 export const metadata = {
   title: "Noticias",
@@ -18,7 +19,14 @@ export default function Noticias() {
           {posts.map((p) => (
             <li key={p.slug}>
               <Link href={`/noticias/${p.slug}`}>
-                <span className="post-date">{p.date}</span>
+                <span className="post-date">
+                  {p.date}
+                  {p.format && (
+                    <span className={`format-badge format-${p.format}`}>
+                      {POST_FORMAT_META[p.format].label}
+                    </span>
+                  )}
+                </span>
                 <span className="post-title">{p.title}</span>
                 {p.resumen && <span className="post-sum">{p.resumen}</span>}
               </Link>

@@ -59,10 +59,22 @@ export const PlayerFrontmatterSchema = playerBase.superRefine((p, ctx) => {
 
 export type PlayerFrontmatter = z.infer<typeof PlayerFrontmatterSchema>;
 
+// Café-metaphor recurring slots. Optional — posts can be unslotted (one-offs,
+// breaking news) and just live in the chronological /noticias feed.
+export const POST_FORMATS = ["expreso", "cortado", "sobremesa"] as const;
+export type PostFormat = (typeof POST_FORMATS)[number];
+
+export const POST_FORMAT_META: Record<PostFormat, { label: string; tagline: string }> = {
+  expreso:   { label: "Expreso",   tagline: "Recap del partido, en 250 palabras." },
+  cortado:   { label: "Cortado",   tagline: "Opinión a mitad de semana." },
+  sobremesa: { label: "Sobremesa", tagline: "Lectura larga del domingo." },
+};
+
 export const PostFrontmatterSchema = z.object({
   title: z.string().min(1),
   date: dateOrString,
   resumen: z.string().max(200).optional(),
+  format: z.enum(POST_FORMATS).optional(),
 });
 
 export type PostFrontmatter = z.infer<typeof PostFrontmatterSchema>;
