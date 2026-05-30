@@ -1,0 +1,412 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Cafe Azzurro - vintage CRT television tuned to a Napoli match in the foreground, St. Pete Beach with palm trees and sun visible to the right, heavy offset-litho print">
+  <title>Cafe Azzurro - TV foreground, beach beyond</title>
+  <defs>
+    <!-- inky / hand-printed rough edges -->
+    <filter id="rough" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- paper grain -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0"/>
+    </filter>
+    <!-- navy halftone screen -->
+    <pattern id="ht" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <circle cx="2" cy="2" r="1.5" fill="#003C82" fill-opacity="0.55"/>
+    </pattern>
+    <!-- warm gold halftone wash -->
+    <pattern id="htg" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-10)">
+      <circle cx="2.2" cy="2.2" r="1.3" fill="#C68A3E" fill-opacity="0.4"/>
+    </pattern>
+    <!-- green halftone for the pitch shadow -->
+    <pattern id="htgreen" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">
+      <circle cx="2" cy="2" r="1.4" fill="#003C82" fill-opacity="0.45"/>
+    </pattern>
+    <!-- wood grain for TV case panel -->
+    <pattern id="wood" width="60" height="14" patternUnits="userSpaceOnUse">
+      <rect width="60" height="14" fill="#5A3A22"/>
+      <path d="M0,3 Q15,1 30,4 T60,3" stroke="#3A2A1E" stroke-width="0.8" fill="none" opacity="0.7"/>
+      <path d="M0,8 Q20,6 40,9 T60,8" stroke="#3A2A1E" stroke-width="0.6" fill="none" opacity="0.5"/>
+      <path d="M0,12 Q18,10 36,12 T60,11" stroke="#3A2A1E" stroke-width="0.7" fill="none" opacity="0.6"/>
+    </pattern>
+    <!-- scan lines for CRT -->
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#003C82" fill-opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <!-- paper -->
+  <rect x="0" y="0" width="1600" height="900" fill="#F3E9D8"/>
+
+  <!-- ===== inked artwork (rough-edged) ===== -->
+  <g filter="url(#rough)">
+
+    <!-- ============ SKY (sunset) ============ -->
+    <g transform="translate(1.5,1.5)">
+      <rect x="0" y="0" width="1600" height="540" fill="#F3E9D8"/>
+    </g>
+    <!-- subtle navy dusk wash at very top -->
+    <rect x="0" y="0" width="1600" height="120" fill="url(#ht)" opacity="0.22"/>
+    <!-- sunset gold halftone wash across full sky -->
+    <rect x="0" y="0" width="1600" height="540" fill="url(#htg)" opacity="0.55"/>
+    <!-- heavier gold near horizon for warmth -->
+    <rect x="0" y="380" width="1600" height="160" fill="url(#htg)" opacity="0.6"/>
+    <!-- warm horizon glow band -->
+    <rect x="0" y="500" width="1600" height="40" fill="#C68A3E" opacity="0.3"/>
+
+    <!-- ============ SUN (lowered, with halftone halo) ============ -->
+    <!-- gold halftone aura around sun -->
+    <circle cx="1280" cy="470" r="148" fill="url(#htg)" opacity="0.85"/>
+    <!-- gold disc -->
+    <circle cx="1280" cy="470" r="98" fill="#C68A3E" transform="translate(1.5,1.5)"/>
+    <circle cx="1280" cy="470" r="98" fill="none" stroke="#003C82" stroke-width="3"/>
+    <!-- halftone cloud partly covering sun -->
+    <path d="M1180,310 Q1190,275 1225,278 Q1238,255 1272,262 Q1295,245 1330,260 Q1370,255 1382,288 Q1410,295 1402,322 Q1380,340 1340,332 Q1310,344 1275,332 Q1245,342 1215,334 Q1180,332 1180,310 Z"
+            fill="url(#ht)"/>
+    <path d="M1180,310 Q1190,275 1225,278 Q1238,255 1272,262 Q1295,245 1330,260 Q1370,255 1382,288 Q1410,295 1402,322 Q1380,340 1340,332 Q1310,344 1275,332 Q1245,342 1215,334 Q1180,332 1180,310 Z"
+            fill="none" stroke="#003C82" stroke-width="2.5"/>
+
+    <!-- second small cloud, upper right -->
+    <path d="M1050,180 Q1060,155 1090,160 Q1108,148 1135,160 Q1160,156 1165,180 Q1180,190 1166,205 Q1140,212 1115,205 Q1085,212 1060,202 Q1042,198 1050,180 Z"
+          fill="url(#ht)"/>
+    <path d="M1050,180 Q1060,155 1090,160 Q1108,148 1135,160 Q1160,156 1165,180 Q1180,190 1166,205 Q1140,212 1115,205 Q1085,212 1060,202 Q1042,198 1050,180 Z"
+          fill="none" stroke="#003C82" stroke-width="2"/>
+
+    <!-- ============ GULF (azzurro band) ============ -->
+    <!-- horizon at y=540 -->
+    <g transform="translate(1.5,1.5)">
+      <rect x="810" y="540" width="790" height="180" fill="#12A0D7"/>
+    </g>
+    <!-- halftone ripples on gulf -->
+    <rect x="810" y="540" width="790" height="180" fill="url(#ht)" opacity="0.7"/>
+    <!-- a few ink ripple strokes -->
+    <g fill="none" stroke="#003C82" stroke-width="2" stroke-linecap="round">
+      <path d="M880,580 Q920,575 960,580 T1040,580"/>
+      <path d="M1080,600 Q1120,594 1160,600 T1240,600"/>
+      <path d="M900,640 Q940,634 980,640 T1060,640"/>
+      <path d="M1180,560 Q1220,556 1260,560 T1340,560"/>
+      <path d="M1320,620 Q1360,614 1400,620 T1480,620"/>
+      <path d="M1000,680 Q1040,674 1080,680 T1160,680"/>
+    </g>
+    <!-- horizon line -->
+    <line x1="810" y1="540" x2="1600" y2="540" stroke="#003C82" stroke-width="3"/>
+
+    <!-- ============ SUN REFLECTION on gulf ============ -->
+    <rect x="1235" y="540" width="90" height="180" fill="url(#htg)" opacity="0.9"/>
+    <rect x="1258" y="540" width="44" height="180" fill="#C68A3E" opacity="0.45"/>
+    <g fill="none" stroke="#C68A3E" stroke-width="2.5" stroke-linecap="round" opacity="0.7">
+      <path d="M1236,584 Q1270,580 1304,584 Q1318,586 1322,584"/>
+      <path d="M1242,620 Q1278,616 1314,620"/>
+      <path d="M1248,660 Q1280,656 1312,660"/>
+      <path d="M1252,700 Q1284,696 1316,700"/>
+    </g>
+
+    <!-- ============ SAILBOAT silhouette ============ -->
+    <g transform="translate(1.5,1.5)">
+      <!-- hull -->
+      <path d="M1140,576 L1196,576 L1188,592 L1148,592 Z" fill="#003C82"/>
+      <!-- mast -->
+      <line x1="1168" y1="576" x2="1168" y2="510" stroke="#003C82" stroke-width="2.5"/>
+      <!-- sail -->
+      <path d="M1168,514 L1168,572 L1200,572 Z" fill="#003C82"/>
+      <path d="M1168,514 L1168,568 L1146,568 Z" fill="#003C82"/>
+    </g>
+
+    <!-- ============ SAND foreground ============ -->
+    <g transform="translate(1.5,1.5)">
+      <rect x="810" y="720" width="790" height="180" fill="#F3E9D8"/>
+    </g>
+    <!-- sparse navy halftone grit -->
+    <rect x="810" y="720" width="790" height="180" fill="url(#ht)" opacity="0.35"/>
+    <!-- shoreline ink -->
+    <path d="M810,720 Q900,716 990,722 T1170,718 T1350,724 T1600,720"
+          fill="none" stroke="#003C82" stroke-width="3"/>
+    <!-- small grit specks -->
+    <g fill="#003C82">
+      <circle cx="900" cy="780" r="2"/>
+      <circle cx="970" cy="820" r="1.8"/>
+      <circle cx="1080" cy="800" r="2.2"/>
+      <circle cx="1180" cy="850" r="1.8"/>
+      <circle cx="1280" cy="790" r="2"/>
+      <circle cx="1380" cy="840" r="2.2"/>
+      <circle cx="1480" cy="800" r="1.8"/>
+      <circle cx="1520" cy="860" r="2"/>
+      <circle cx="940" cy="860" r="1.6"/>
+      <circle cx="1140" cy="780" r="1.6"/>
+      <circle cx="1340" cy="870" r="1.6"/>
+    </g>
+
+    <!-- ============ PALM TREES (navy silhouette, right edge) ============ -->
+    <!-- Tall palm, far right -->
+    <g transform="translate(1.5,1.5)">
+      <!-- trunk -->
+      <path d="M1500,870 C1496,800 1508,720 1502,640 C1498,580 1510,520 1506,460"
+            fill="none" stroke="#003C82" stroke-width="11" stroke-linecap="round"/>
+      <!-- trunk segments -->
+      <g stroke="#003C82" stroke-width="2" fill="none">
+        <path d="M1494,820 Q1502,818 1510,820"/>
+        <path d="M1495,770 Q1503,768 1511,770"/>
+        <path d="M1496,720 Q1504,718 1512,720"/>
+        <path d="M1497,670 Q1505,668 1513,670"/>
+        <path d="M1498,620 Q1506,618 1514,620"/>
+        <path d="M1499,570 Q1507,568 1515,570"/>
+        <path d="M1500,520 Q1508,518 1516,520"/>
+      </g>
+      <!-- fronds -->
+      <g fill="#003C82">
+        <path d="M1506,460 Q1440,420 1370,430 Q1430,440 1490,470 Z"/>
+        <path d="M1506,460 Q1560,410 1620,395 Q1580,430 1520,475 Z"/>
+        <path d="M1506,460 Q1450,470 1390,510 Q1450,490 1502,478 Z"/>
+        <path d="M1506,460 Q1572,470 1626,500 Q1570,484 1514,478 Z"/>
+        <path d="M1506,460 Q1500,400 1486,340 Q1510,388 1512,452 Z"/>
+        <path d="M1506,460 Q1520,395 1546,348 Q1524,400 1518,454 Z"/>
+      </g>
+      <!-- coconut cluster -->
+      <circle cx="1506" cy="462" r="6" fill="#5A3A22"/>
+      <circle cx="1513" cy="466" r="5" fill="#5A3A22"/>
+      <circle cx="1500" cy="467" r="5" fill="#5A3A22"/>
+    </g>
+
+    <!-- Shorter palm -->
+    <g transform="translate(1.5,1.5)">
+      <path d="M1410,860 C1408,810 1414,760 1412,710 C1410,670 1416,630 1414,600"
+            fill="none" stroke="#003C82" stroke-width="9" stroke-linecap="round"/>
+      <g stroke="#003C82" stroke-width="1.8" fill="none">
+        <path d="M1404,820 Q1412,818 1420,820"/>
+        <path d="M1405,770 Q1413,768 1421,770"/>
+        <path d="M1406,720 Q1414,718 1422,720"/>
+        <path d="M1407,670 Q1415,668 1423,670"/>
+        <path d="M1408,630 Q1416,628 1424,630"/>
+      </g>
+      <g fill="#003C82">
+        <path d="M1414,600 Q1360,580 1310,590 Q1360,598 1408,608 Z"/>
+        <path d="M1414,600 Q1460,575 1500,565 Q1468,592 1422,612 Z"/>
+        <path d="M1414,600 Q1370,624 1330,660 Q1378,628 1412,612 Z"/>
+        <path d="M1414,600 Q1462,624 1494,654 Q1454,624 1418,612 Z"/>
+        <path d="M1414,600 Q1410,558 1402,520 Q1416,556 1418,594 Z"/>
+      </g>
+      <circle cx="1414" cy="602" r="4.5" fill="#5A3A22"/>
+      <circle cx="1419" cy="606" r="4" fill="#5A3A22"/>
+    </g>
+
+    <!-- ============ CRT TELEVISION (left half) ============ -->
+    <!-- TV case occupies x=20..820, y=200..900 -->
+
+    <!-- ANTENNAS (rabbit ears) - draw first so case overlaps -->
+    <g>
+      <line x1="280" y1="220" x2="160" y2="60" stroke="#003C82" stroke-width="5" stroke-linecap="round"/>
+      <line x1="280" y1="220" x2="280" y2="60" stroke="#003C82" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+      <circle cx="160" cy="60" r="9" fill="#C68A3E" stroke="#003C82" stroke-width="3"/>
+
+      <line x1="340" y1="220" x2="500" y2="40" stroke="#003C82" stroke-width="5" stroke-linecap="round"/>
+      <line x1="340" y1="220" x2="340" y2="40" stroke="#003C82" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+      <circle cx="500" cy="40" r="9" fill="#C68A3E" stroke="#003C82" stroke-width="3"/>
+      <!-- antenna base bracket -->
+      <rect x="270" y="210" width="80" height="22" fill="#5A3A22" stroke="#003C82" stroke-width="3"/>
+    </g>
+
+    <!-- TV case body (brown vintage wood, offset) -->
+    <g transform="translate(1.5,1.5)">
+      <path d="M40,230 L780,230 L800,260 L800,860 L780,880 L40,880 L20,860 L20,260 Z" fill="#5A3A22"/>
+    </g>
+    <!-- halftone shading on right side of case for litho depth -->
+    <path d="M410,230 L780,230 L800,260 L800,860 L780,880 L410,880 Z" fill="url(#ht)" opacity="0.35"/>
+    <!-- wood panel detail strip on right of casing -->
+    <rect x="600" y="260" width="180" height="580" fill="url(#wood)"/>
+    <rect x="600" y="260" width="180" height="580" fill="none" stroke="#003C82" stroke-width="3"/>
+    <!-- wood panel inner pinstripe gold -->
+    <rect x="612" y="272" width="156" height="556" fill="none" stroke="#C68A3E" stroke-width="1.5"/>
+
+    <!-- TV case keyline -->
+    <path d="M40,230 L780,230 L800,260 L800,860 L780,880 L40,880 L20,860 L20,260 Z"
+          fill="none" stroke="#003C82" stroke-width="5" stroke-linejoin="round"/>
+
+    <!-- bottom feet -->
+    <rect x="80" y="880" width="40" height="18" fill="#5A3A22" stroke="#003C82" stroke-width="3"/>
+    <rect x="540" y="880" width="40" height="18" fill="#5A3A22" stroke="#003C82" stroke-width="3"/>
+
+    <!-- ============ SCREEN bezel ============ -->
+    <!-- bezel inset -->
+    <g transform="translate(1.5,1.5)">
+      <path d="M80,290 Q70,540 80,790 L580,790 Q590,540 580,290 Z" fill="#3A2A1E"/>
+    </g>
+    <path d="M80,290 Q70,540 80,790 L580,790 Q590,540 580,290 Z"
+          fill="none" stroke="#003C82" stroke-width="4" stroke-linejoin="round"/>
+
+    <!-- ============ SCREEN content (the broadcast) ============ -->
+    <!-- screen as a clip -->
+    <defs>
+      <clipPath id="screenclip">
+        <path d="M100,310 Q92,540 100,770 L560,770 Q568,540 560,310 Z"/>
+      </clipPath>
+    </defs>
+
+    <g clip-path="url(#screenclip)">
+      <!-- pitch base: cream paper with a gold halftone wash — reads as a vintage sepia broadcast -->
+      <g transform="translate(1.5,1.5)">
+        <rect x="80" y="310" width="500" height="480" fill="#F3E9D8"/>
+        <rect x="80" y="310" width="500" height="480" fill="#C68A3E" opacity="0.55"/>
+      </g>
+      <!-- halftone shading on right side of pitch -->
+      <rect x="330" y="310" width="240" height="480" fill="url(#htgreen)"/>
+
+      <!-- pitch perspective: white touchlines -->
+      <!-- outer touchline rectangle (perspective trapezoid) -->
+      <path d="M130,720 L530,720 L490,420 L170,420 Z"
+            fill="none" stroke="#F3E9D8" stroke-width="4"/>
+      <!-- halfway line -->
+      <line x1="150" y1="570" x2="510" y2="570" stroke="#F3E9D8" stroke-width="3"/>
+      <!-- center circle (ellipse for perspective) -->
+      <ellipse cx="330" cy="570" rx="80" ry="22" fill="none" stroke="#F3E9D8" stroke-width="3"/>
+      <!-- center spot -->
+      <circle cx="330" cy="570" r="3" fill="#F3E9D8"/>
+
+      <!-- penalty box near top (far end) -->
+      <path d="M260,420 L400,420 L390,460 L270,460 Z"
+            fill="none" stroke="#F3E9D8" stroke-width="2.5"/>
+
+      <!-- ============ STICK FIGURES ============ -->
+      <!-- Napoli home-kit player - mid-stride -->
+      <g>
+        <!-- head -->
+        <circle cx="240" cy="600" r="14" fill="#F3E9D8" stroke="#003C82" stroke-width="2.5"/>
+        <!-- torso (azzurro Napoli shirt) -->
+        <path d="M226,614 L254,614 L260,660 L220,660 Z" fill="#12A0D7" stroke="#003C82" stroke-width="2.5"/>
+        <!-- arms mid-stride -->
+        <line x1="226" y1="622" x2="208" y2="650" stroke="#003C82" stroke-width="4" stroke-linecap="round"/>
+        <line x1="254" y1="622" x2="276" y2="640" stroke="#003C82" stroke-width="4" stroke-linecap="round"/>
+        <!-- legs mid-stride -->
+        <line x1="232" y1="660" x2="218" y2="700" stroke="#003C82" stroke-width="5" stroke-linecap="round"/>
+        <line x1="248" y1="660" x2="266" y2="700" stroke="#003C82" stroke-width="5" stroke-linecap="round"/>
+        <!-- shoes -->
+        <ellipse cx="216" cy="702" rx="8" ry="3" fill="#003C82"/>
+        <ellipse cx="268" cy="702" rx="8" ry="3" fill="#003C82"/>
+      </g>
+
+      <!-- Gold player (opponent) - mid-stride toward ball -->
+      <g>
+        <circle cx="420" cy="600" r="14" fill="#F3E9D8" stroke="#003C82" stroke-width="2.5"/>
+        <path d="M406,614 L434,614 L440,660 L400,660 Z" fill="#C68A3E" stroke="#003C82" stroke-width="2.5"/>
+        <line x1="406" y1="622" x2="386" y2="638" stroke="#003C82" stroke-width="4" stroke-linecap="round"/>
+        <line x1="434" y1="622" x2="454" y2="650" stroke="#003C82" stroke-width="4" stroke-linecap="round"/>
+        <line x1="412" y1="660" x2="396" y2="700" stroke="#003C82" stroke-width="5" stroke-linecap="round"/>
+        <line x1="428" y1="660" x2="446" y2="700" stroke="#003C82" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="394" cy="702" rx="8" ry="3" fill="#003C82"/>
+        <ellipse cx="448" cy="702" rx="8" ry="3" fill="#003C82"/>
+      </g>
+
+      <!-- ball between them -->
+      <circle cx="330" cy="680" r="11" fill="#F3E9D8" stroke="#003C82" stroke-width="2.5"/>
+      <!-- ball pentagon hints -->
+      <path d="M324,674 L336,674 L330,684 Z" fill="#003C82"/>
+      <path d="M322,684 L328,690 L324,694" stroke="#003C82" stroke-width="1.5" fill="none"/>
+      <path d="M338,684 L332,690 L336,694" stroke="#003C82" stroke-width="1.5" fill="none"/>
+
+      <!-- ============ SCOREBOARD top-left of screen ============ -->
+      <g>
+        <rect x="115" y="330" width="150" height="44" fill="#003C82"/>
+        <rect x="115" y="330" width="150" height="44" fill="none" stroke="#F3E9D8" stroke-width="2"/>
+        <!-- gold accent strip -->
+        <rect x="115" y="330" width="6" height="44" fill="#C68A3E"/>
+        <!-- "NAP 1 - 0" pixel-ish text -->
+        <g fill="#F3E9D8" font-family="monospace" font-weight="bold" font-size="20" letter-spacing="2">
+          <text x="132" y="358">NAP 1-0</text>
+        </g>
+        <!-- live dot -->
+        <circle cx="252" cy="342" r="4" fill="#C68A3E"/>
+      </g>
+
+      <!-- scan line overlay -->
+      <rect x="80" y="290" width="510" height="510" fill="url(#scan)" opacity="0.2"/>
+      <!-- subtle screen glow vignette at corners (navy) -->
+      <path d="M80,290 Q90,320 100,310 L100,330 Q92,360 80,360 Z" fill="#003C82" opacity="0.25"/>
+      <path d="M580,290 Q570,320 560,310 L560,330 Q568,360 580,360 Z" fill="#003C82" opacity="0.25"/>
+      <path d="M80,790 Q90,760 100,770 L100,750 Q92,720 80,720 Z" fill="#003C82" opacity="0.25"/>
+      <path d="M580,790 Q570,760 560,770 L560,750 Q568,720 580,720 Z" fill="#003C82" opacity="0.25"/>
+    </g>
+
+    <!-- screen outer ink frame on register -->
+    <path d="M100,310 Q92,540 100,770 L560,770 Q568,540 560,310 Z"
+          fill="none" stroke="#003C82" stroke-width="3"/>
+
+    <!-- ============ KNOBS + DIAL on right of casing (below wood panel area) ============ -->
+    <!-- Channel knob -->
+    <g transform="translate(1.5,1.5)">
+      <circle cx="690" cy="370" r="34" fill="#C68A3E"/>
+    </g>
+    <circle cx="690" cy="370" r="34" fill="none" stroke="#003C82" stroke-width="4"/>
+    <circle cx="690" cy="370" r="22" fill="none" stroke="#003C82" stroke-width="2"/>
+    <!-- knob tick mark -->
+    <line x1="690" y1="370" x2="708" y2="354" stroke="#003C82" stroke-width="4" stroke-linecap="round"/>
+    <!-- tick marks around knob -->
+    <g stroke="#003C82" stroke-width="1.8">
+      <line x1="690" y1="328" x2="690" y2="334"/>
+      <line x1="722" y1="340" x2="718" y2="344"/>
+      <line x1="732" y1="370" x2="726" y2="370"/>
+      <line x1="722" y1="400" x2="718" y2="396"/>
+      <line x1="690" y1="412" x2="690" y2="406"/>
+      <line x1="658" y1="400" x2="662" y2="396"/>
+      <line x1="648" y1="370" x2="654" y2="370"/>
+      <line x1="658" y1="340" x2="662" y2="344"/>
+    </g>
+
+    <!-- Volume knob -->
+    <g transform="translate(1.5,1.5)">
+      <circle cx="690" cy="490" r="26" fill="#C68A3E"/>
+    </g>
+    <circle cx="690" cy="490" r="26" fill="none" stroke="#003C82" stroke-width="4"/>
+    <line x1="690" y1="490" x2="704" y2="478" stroke="#003C82" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Tuner dial -->
+    <g transform="translate(1.5,1.5)">
+      <rect x="650" y="560" width="100" height="40" fill="#F3E9D8"/>
+    </g>
+    <rect x="650" y="560" width="100" height="40" fill="none" stroke="#003C82" stroke-width="3"/>
+    <!-- dial ticks -->
+    <g stroke="#003C82" stroke-width="1.5">
+      <line x1="660" y1="572" x2="660" y2="588"/>
+      <line x1="675" y1="572" x2="675" y2="588"/>
+      <line x1="690" y1="568" x2="690" y2="592"/>
+      <line x1="705" y1="572" x2="705" y2="588"/>
+      <line x1="720" y1="572" x2="720" y2="588"/>
+      <line x1="735" y1="572" x2="735" y2="588"/>
+    </g>
+    <!-- red pointer -->
+    <line x1="695" y1="562" x2="695" y2="598" stroke="#C68A3E" stroke-width="2.5"/>
+    <!-- dial label -->
+    <text x="660" y="616" font-family="monospace" font-size="10" fill="#003C82" letter-spacing="1">VHF</text>
+
+    <!-- Speaker grille (below screen, left of wood panel) - small detail -->
+    <g>
+      <rect x="100" y="810" width="480" height="50" fill="#3A2A1E" stroke="#003C82" stroke-width="3"/>
+      <g stroke="#C68A3E" stroke-width="1.5" opacity="0.7">
+        <line x1="110" y1="820" x2="570" y2="820"/>
+        <line x1="110" y1="830" x2="570" y2="830"/>
+        <line x1="110" y1="840" x2="570" y2="840"/>
+        <line x1="110" y1="850" x2="570" y2="850"/>
+      </g>
+      <!-- brand stamp -->
+      <rect x="240" y="828" width="100" height="22" fill="#003C82"/>
+      <text x="252" y="845" font-family="monospace" font-weight="bold" font-size="12" fill="#C68A3E" letter-spacing="2">AZZURRO</text>
+    </g>
+
+    <!-- highlight on screen bezel top -->
+    <path d="M120,316 Q92,330 108,340" stroke="#F3E9D8" stroke-width="3" fill="none" opacity="0.4"/>
+
+    <!-- ============ Café Azzurro wordmark (lower-right watermark) ============ -->
+    <g>
+      <text x="1270" y="846" font-family="'Fraunces', Georgia, serif" font-weight="700" font-size="22" letter-spacing="2" fill="#003C82">Café <tspan fill="#12A0D7">Azzurro</tspan></text>
+      <line x1="1270" y1="853" x2="1452" y2="853" stroke="#C68A3E" stroke-width="1.5"/>
+      <text x="1338" y="868" font-family="ui-sans-serif,system-ui,sans-serif" font-size="9" letter-spacing="3" fill="#003C82" opacity="0.7">DAL 1926</text>
+    </g>
+
+    <!-- ============ INK FRAME (hand-stamped) ============ -->
+    <rect x="30" y="30" width="1540" height="840" fill="none" stroke="#003C82" stroke-width="5"/>
+    <rect x="30" y="30" width="1540" height="840" fill="none" stroke="#C68A3E" stroke-width="1.8" transform="translate(2,2)"/>
+
+  </g>
+
+  <!-- paper grain over everything -->
+  <rect x="0" y="0" width="1600" height="900" filter="url(#grain)" opacity="0.5"/>
+</svg>

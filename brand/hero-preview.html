@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Azzurro · Hero Variant Compare</title>
+<style>
+  :root{
+    --cream:#F3E9D8; --navy:#003C82; --azzurro:#12A0D7;
+    --gold:#C68A3E; --espresso:#3A2A1E;
+    --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --serif: "Fraunces", Georgia, serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#E8DBC4;color:var(--navy);font-family:var(--font)}
+  body{padding:48px 32px 96px}
+  header{max-width:1400px;margin:0 auto 32px}
+  h1{font-family:var(--serif);font-weight:700;font-size:44px;margin:0 0 8px;letter-spacing:-.01em}
+  h1 .az{color:var(--azzurro)}
+  .lede{font-size:15px;line-height:1.55;opacity:.78;max-width:62ch;margin:0 0 4px}
+  .meta{font-size:12px;opacity:.6;letter-spacing:1.5px;text-transform:uppercase;margin-top:18px}
+  .stack{max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:64px}
+  .variant{background:var(--cream);border:1px solid rgba(0,60,130,.12);border-radius:14px;overflow:hidden;box-shadow:0 8px 28px -16px rgba(0,60,130,.4)}
+  .variant header{margin:0;padding:18px 22px;border-bottom:1px solid rgba(0,60,130,.1);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .vnum{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--azzurro)}
+  .vname{font-family:var(--serif);font-weight:700;font-size:22px}
+  .vrate{margin-left:auto;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .vpath{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:11px;opacity:.55;flex-basis:100%}
+  .canvas{display:block;width:100%;height:auto;background:var(--cream)}
+  .concept{padding:18px 22px;font-size:14px;line-height:1.6;border-top:1px solid rgba(0,60,130,.06);background:rgba(243,233,216,.5)}
+  .legend{margin-top:48px;padding:18px 22px;background:rgba(243,233,216,.65);border-radius:14px;font-size:13px;line-height:1.6;max-width:1400px;margin-inline:auto}
+  .legend strong{display:block;font-family:var(--serif);font-size:18px;margin-bottom:8px}
+  .legend ul{margin:8px 0 0;padding-left:20px}
+  .swatch{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.15)}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Café <span class="az">Azzurro</span> · hero compare</h1>
+  <p class="lede">Six SVG hero variants. All inherit the moka mark's offset-litho technique: feTurbulence-displaced edges, navy/gold halftone patterns, misregistered azzurro fills, paper grain. Each variant takes a different compositional approach to St. Pete Beach + a TV with vague soccer playing.</p>
+  <p class="meta">Open in browser · zoom in/out as needed · variants are 1600×900</p>
+</header>
+
+<div class="stack">
+
+  <section class="variant">
+    <header>
+      <span class="vnum">V1</span>
+      <span class="vname">Golden Hour Wide Horizon</span>
+      <span class="vrate">Self-rate 7.5/10</span>
+      <span class="vpath">brand/hero-beach-v1.svg</span>
+    </header>
+    <img class="canvas" src="hero-beach-v1.svg" alt="V1 — golden hour wide horizon">
+    <p class="concept"><strong>Concept:</strong> Wide horizon at golden hour: cream paper sky tinted with gold near the waterline, an azzurro halftone bruise upper-left for atmospheric depth. Gold sun sits low-right with halftone aureole, casting a gold column down the azzurro gulf. A leaning navy palm anchors the left edge; a small chunky CRT on a striped blanket lower-right tuned to two stick footballers. Misregistered azzurro and a double-struck navy/gold frame keep the offset-litho honesty.</p>
+  </section>
+
+  <section class="variant">
+    <header>
+      <span class="vnum">V2</span>
+      <span class="vname">TV Foreground, Beach Beyond</span>
+      <span class="vrate">Self-rate 8/10</span>
+      <span class="vpath">brand/hero-beach-v2.svg</span>
+    </header>
+    <img class="canvas" src="hero-beach-v2.svg" alt="V2 — TV foreground, beach beyond">
+    <p class="concept"><strong>Concept:</strong> Chunky vintage CRT dominates the left half as a character in its own right — wood-paneled casing, rabbit-ear antennas, gold knobs, VHF tuner. Screen broadcasts the match in perspective: azzurro and gold stick figures mid-stride toward a white ball at center circle, "NAP 1-0" scoreboard glowing, scan lines drifting across. Beyond the set, the gulf opens up: gold-washed sky, halftone clouds veiling a gold sun, navy palm silhouettes, a tiny sailboat, sand pocked with grit.</p>
+  </section>
+
+  <section class="variant">
+    <header>
+      <span class="vnum">V3</span>
+      <span class="vname">Beach Chair POV</span>
+      <span class="vrate">Self-rate 8/10</span>
+      <span class="vpath">brand/hero-beach-v3.svg</span>
+    </header>
+    <img class="canvas" src="hero-beach-v3.svg" alt="V3 — beach chair POV">
+    <p class="concept"><strong>Concept:</strong> First-person sunset at the gulf: viewer sunk into a navy-outlined Adirondack chair, brown slats receding left, a sweating azzurro soda bottle on the armrest with gold-droplet condensation. Lower right, a CRT TV with bent antenna perches on a ribbed Yeti-style cooler, screen showing tiny azzurro and gold stick figures chasing a white ball across a halftone pitch. Centered sun bleeds a gold reflection column across navy-stippled water. Four navy gulls cross a gold-washed sky.</p>
+  </section>
+
+  <section class="variant">
+    <header>
+      <span class="vnum">V4</span>
+      <span class="vname">Pier at Dusk</span>
+      <span class="vrate">Self-rate 8/10</span>
+      <span class="vpath">brand/hero-beach-v4.svg</span>
+    </header>
+    <img class="canvas" src="hero-beach-v4.svg" alt="V4 — pier at dusk">
+    <p class="concept"><strong>Concept:</strong> Dusk at the St. Pete Pier as a misregistered risograph print. Wooden boardwalk recedes in one-point perspective to a gold sun resting on the horizon. A CRT television perches on a foreground piling broadcasting a glare-washed soccer match. Three navy pelicans cruise toward the sun in V formation. A small lantern glows on a mid-distance post; dusk clouds smudge the upper-right sky. Halftones do the heavy lifting: navy ripples on azzurro gulf, gold reflection column streaming down the pier.</p>
+  </section>
+
+  <section class="variant">
+    <header>
+      <span class="vnum">V5</span>
+      <span class="vname">Lifeguard Tower Silhouette</span>
+      <span class="vrate">Self-rate 8/10</span>
+      <span class="vpath">brand/hero-beach-v5.svg</span>
+    </header>
+    <img class="canvas" src="hero-beach-v5.svg" alt="V5 — lifeguard tower">
+    <p class="concept"><strong>Concept:</strong> A St. Pete lifeguard tower anchors the right of frame, stilts and ladder rising from cream sand into a halftone-gold sky. Gold sun sits half-eclipsed behind its cabin, scattering shimmer down a navy-rippled gulf. A CRT props at its base showing a tiny soccer match — culture meets coast. Left foreground holds an azzurro umbrella, gold-striped towel and cooler; pelicans drift upper-left; halftone footprints lead the viewer toward the tower.</p>
+  </section>
+
+  <section class="variant">
+    <header>
+      <span class="vnum">V6</span>
+      <span class="vname">Mid-Century Travel Poster</span>
+      <span class="vrate">Self-rate 8.5/10</span>
+      <span class="vpath">brand/hero-beach-v6.svg</span>
+    </header>
+    <img class="canvas" src="hero-beach-v6.svg" alt="V6 — travel poster minimal">
+    <p class="concept"><strong>Concept:</strong> A 1962 Adriatic travel poster reduced to its essentials: a hand-stamped sun built from a gold disc inside a misregistered navy ring, twelve halftone-fading rays radiating outward like a citrus-crate label, a single gold typographic hairline horizon, a flat azzurro gulf scored by three navy halftone wave strips, one angular Olivetti-style palm anchoring the right edge, and a tiny televised match centered low — antenna V, stick figure, gold ball — functioning as a typographic mark.</p>
+  </section>
+
+</div>
+
+<aside class="legend">
+  <strong>Palette in use</strong>
+  <span><span class="swatch" style="background:#F3E9D8"></span>#F3E9D8 cream</span> ·
+  <span><span class="swatch" style="background:#003C82"></span>#003C82 navy</span> ·
+  <span><span class="swatch" style="background:#12A0D7"></span>#12A0D7 azzurro</span> ·
+  <span><span class="swatch" style="background:#C68A3E"></span>#C68A3E gold</span> ·
+  <span><span class="swatch" style="background:#5A3A22"></span>#5A3A22 brown</span> ·
+  <span><span class="swatch" style="background:#3A2A1E"></span>#3A2A1E espresso</span>
+  <ul>
+    <li>All six inherit the moka mark's <code>rough</code> + <code>grain</code> filters and <code>ht</code>/<code>htg</code> halftone patterns.</li>
+    <li>Azzurro fills are misregistered via <code>translate(1.5,1.5)</code>; navy keylines stay on register — that's the offset-litho "tell."</li>
+    <li>Variants are SVG, render crisply at any size; native dimensions 1600×900.</li>
+  </ul>
+</aside>
+
+</body>
+</html>

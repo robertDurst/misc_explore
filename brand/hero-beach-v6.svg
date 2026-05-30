@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Cafe Azzurro - mid-century travel poster, sun over the gulf with a lone palm and a television showing the match">
+  <title>Cafe Azzurro - Sun, Gulf, Palm and a Tiny Television</title>
+  <defs>
+    <!-- inky / hand-printed rough edges -->
+    <filter id="rough" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- paper grain -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0"/>
+    </filter>
+    <!-- navy halftone screen (the 'shaded' ink) -->
+    <pattern id="ht" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <circle cx="2" cy="2" r="1.5" fill="#003C82" fill-opacity="0.55"/>
+    </pattern>
+    <!-- warm gold halftone wash -->
+    <pattern id="htg" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-10)">
+      <circle cx="2.2" cy="2.2" r="1.3" fill="#C68A3E" fill-opacity="0.4"/>
+    </pattern>
+    <clipPath id="clip"><rect x="0" y="0" width="1600" height="900"/></clipPath>
+    <!-- ray fade: navy rays halftone-fade toward the tips -->
+    <linearGradient id="rayfade" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#003C82" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#003C82" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- paper -->
+  <rect x="0" y="0" width="1600" height="900" fill="#F3E9D8"/>
+
+  <!-- ===== inked artwork (rough-edged) ===== -->
+  <g filter="url(#rough)">
+
+    <!-- ============ SKY ============ -->
+    <!-- sparse gold halftone wash, only above the horizon -->
+    <rect x="0" y="0" width="1600" height="580" fill="url(#htg)" opacity="0.55"/>
+
+    <!-- ============ SUN: rays first (behind disc) ============ -->
+    <!-- 12 navy rays radiating from sun center (800,440), fading toward tips -->
+    <g stroke="url(#rayfade)" stroke-width="7" stroke-linecap="round" fill="none">
+      <!-- rays drawn as lines from just outside outer ring (r~195) to ~r=420 -->
+      <line x1="800" y1="245" x2="800" y2="20"/>
+      <line x1="897" y1="270" x2="1010" y2="60"/>
+      <line x1="970" y1="343" x2="1180" y2="225"/>
+      <line x1="995" y1="440" x2="1220" y2="440"/>
+      <line x1="970" y1="537" x2="1180" y2="655"/>
+      <line x1="897" y1="610" x2="1010" y2="820"/>
+      <line x1="703" y1="610" x2="590" y2="820"/>
+      <line x1="630" y1="537" x2="420" y2="655"/>
+      <line x1="605" y1="440" x2="380" y2="440"/>
+      <line x1="630" y1="343" x2="420" y2="225"/>
+      <line x1="703" y1="270" x2="590" y2="60"/>
+    </g>
+
+    <!-- ============ SUN: bold concentric ring ============ -->
+    <!-- azzurro misregister halo (translate 1.5,1.5 a la moka) -->
+    <g transform="translate(1.5,1.5)">
+      <circle cx="800" cy="440" r="180" fill="#12A0D7" opacity="0.18"/>
+    </g>
+    <!-- gold inner disc -->
+    <circle cx="800" cy="440" r="142" fill="#C68A3E"/>
+    <!-- subtle gold halftone wash inside disc (gives it print weight) -->
+    <circle cx="800" cy="440" r="142" fill="url(#ht)" opacity="0.35"/>
+    <!-- navy outer ring (hand-stamped feel) -->
+    <circle cx="800" cy="440" r="178" fill="none" stroke="#003C82" stroke-width="9"/>
+    <!-- gold register echo of outer ring, slightly offset -->
+    <circle cx="800" cy="440" r="178" fill="none" stroke="#C68A3E" stroke-width="2" transform="translate(2.5,2.5)"/>
+
+    <!-- ============ HORIZON ============ -->
+    <!-- 3-4px gold typographic rule -->
+    <line x1="50" y1="580" x2="1550" y2="580" stroke="#C68A3E" stroke-width="4"/>
+    <!-- 1px navy misregistered -->
+    <line x1="50" y1="580" x2="1550" y2="580" stroke="#003C82" stroke-width="1.2" transform="translate(1.5,1.5)"/>
+
+    <!-- ============ GULF ============ -->
+    <!-- single azzurro flat band (misregister down-right) -->
+    <g transform="translate(1.5,1.5)">
+      <rect x="0" y="580" width="1600" height="320" fill="#12A0D7"/>
+    </g>
+    <!-- three thin navy halftone strips for wave texture -->
+    <rect x="0" y="640" width="1600" height="10" fill="url(#ht)"/>
+    <rect x="0" y="730" width="1600" height="8"  fill="url(#ht)"/>
+    <rect x="0" y="820" width="1600" height="6"  fill="url(#ht)"/>
+
+    <!-- ============ PALM (right edge) ============ -->
+    <!-- pure navy silhouette, angular Olivetti/Pirelli energy -->
+    <g fill="#003C82">
+      <!-- trunk: tapering slight curve via polygon -->
+      <path d="M1372,580 L1382,580 L1396,300 L1388,300 Z"/>
+      <!-- crown nub -->
+      <circle cx="1392" cy="296" r="10"/>
+      <!-- 6 angular fronds emanating from crown (1392,296) -->
+      <!-- frond 1: up-left long -->
+      <path d="M1392,296 L1240,210 L1252,232 L1390,302 Z"/>
+      <!-- frond 2: left mid -->
+      <path d="M1392,296 L1238,288 L1252,302 L1392,306 Z"/>
+      <!-- frond 3: down-left -->
+      <path d="M1392,296 L1252,372 L1270,378 L1394,308 Z"/>
+      <!-- frond 4: up-right -->
+      <path d="M1392,296 L1530,202 L1520,224 L1396,302 Z"/>
+      <!-- frond 5: right mid -->
+      <path d="M1392,296 L1554,294 L1540,306 L1394,306 Z"/>
+      <!-- frond 6: down-right -->
+      <path d="M1392,296 L1540,360 L1522,372 L1396,308 Z"/>
+      <!-- frond 7: short straight up -->
+      <path d="M1388,294 L1380,200 L1396,200 L1396,296 Z"/>
+      <!-- small coconut cluster -->
+      <circle cx="1380" cy="312" r="6"/>
+      <circle cx="1404" cy="314" r="6"/>
+    </g>
+
+    <!-- ============ TINY TV (centered low) ============ -->
+    <!-- around x=760, y=720, ~140px wide. Acts as a typographic mark. -->
+    <!-- antenna V (drawn first, behind body) -->
+    <g stroke="#003C82" stroke-width="4" stroke-linecap="round" fill="none">
+      <line x1="830" y1="700" x2="810" y2="660"/>
+      <line x1="830" y1="700" x2="850" y2="660"/>
+      <circle cx="810" cy="658" r="3" fill="#003C82"/>
+      <circle cx="850" cy="658" r="3" fill="#003C82"/>
+    </g>
+
+    <!-- TV body: azzurro misregister fill -->
+    <g transform="translate(1.5,1.5)">
+      <rect x="760" y="700" width="140" height="100" rx="6" fill="#12A0D7"/>
+    </g>
+    <!-- navy outline body -->
+    <rect x="760" y="700" width="140" height="100" rx="6" fill="none" stroke="#003C82" stroke-width="4"/>
+    <!-- screen inset (azzurro flat) -->
+    <rect x="772" y="712" width="92" height="76" fill="#12A0D7"/>
+    <!-- screen navy keyline -->
+    <rect x="772" y="712" width="92" height="76" fill="none" stroke="#003C82" stroke-width="2"/>
+    <!-- single horizontal green pitch line -->
+    <line x1="776" y1="768" x2="860" y2="768" stroke="#3A2A1E" stroke-width="2" opacity="0.75"/>
+    <line x1="776" y1="768" x2="860" y2="768" stroke="#C68A3E" stroke-width="1" opacity="0.8" transform="translate(1,-1)"/>
+    <!-- stick figure player -->
+    <g stroke="#003C82" stroke-width="2" stroke-linecap="round" fill="none">
+      <circle cx="800" cy="744" r="4" fill="#003C82"/>
+      <line x1="800" y1="748" x2="800" y2="762"/>
+      <line x1="800" y1="754" x2="794" y2="760"/>
+      <line x1="800" y1="754" x2="806" y2="758"/>
+      <line x1="800" y1="762" x2="796" y2="768"/>
+      <line x1="800" y1="762" x2="804" y2="768"/>
+    </g>
+    <!-- the ball -->
+    <circle cx="836" cy="766" r="3" fill="#C68A3E" stroke="#003C82" stroke-width="1"/>
+    <!-- TV control dials (two tiny gold dots on right side) -->
+    <circle cx="884" cy="724" r="3" fill="#C68A3E"/>
+    <circle cx="884" cy="740" r="3" fill="#C68A3E"/>
+    <!-- TV base/legs -->
+    <line x1="780" y1="800" x2="772" y2="814" stroke="#003C82" stroke-width="3" stroke-linecap="round"/>
+    <line x1="880" y1="800" x2="888" y2="814" stroke="#003C82" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- ============ TINY BRAND MARK (lower-right, inside ink frame) ============ -->
+    <text x="1490" y="838" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="18" letter-spacing="6" fill="#003C82" font-weight="700">AZZURRO</text>
+
+    <!-- ============ HAND-STAMPED INK FRAME ============ -->
+    <!-- inset 50px from edges, bolder stroke than other variants -->
+    <!-- gold ring -->
+    <rect x="50" y="50" width="1500" height="800" fill="none" stroke="#C68A3E" stroke-width="6"/>
+    <!-- navy ring misregistered -->
+    <rect x="50" y="50" width="1500" height="800" fill="none" stroke="#003C82" stroke-width="5" transform="translate(2.5,2.5)"/>
+
+  </g>
+
+  <!-- paper grain over everything -->
+  <g clip-path="url(#clip)"><rect x="0" y="0" width="1600" height="900" filter="url(#grain)" opacity="0.5"/></g>
+</svg>

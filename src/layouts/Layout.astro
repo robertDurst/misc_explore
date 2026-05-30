@@ -9,7 +9,7 @@ interface Props {
 
 const SITE_TITLE = "Café Azzurro · El Napoli en español";
 const SITE_DESCRIPTION =
-  "El Napoli, contado en español. Calendario, plantilla, historia y análisis del SSC Napoli desde una perspectiva caribeña.";
+  "El Napoli, contado en español por un aficionado desde lejos. Calendario, noticias y análisis del SSC Napoli.";
 
 const { title, description, canonical } = Astro.props;
 const fullTitle = title ? `${title} · Café Azzurro` : SITE_TITLE;
@@ -44,7 +44,7 @@ const canonicalUrl = new URL(canonical ?? Astro.url.pathname, Astro.site).toStri
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Café Azzurro" />
-    <meta name="twitter:description" content="El Napoli, contado en español." />
+    <meta name="twitter:description" content="El Napoli, contado en español desde lejos." />
     <meta name="twitter:image" content={new URL("/logo.svg", Astro.site).toString()} />
   </head>
   <body>

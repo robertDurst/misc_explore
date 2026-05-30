@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import { coffeeSize } from "@/lib/coffeeSize";
 
 // Note: Astro renders raw HTML in markdown by default. If/when this repo
 // takes outside contributor PRs, configure markdown.rehypePlugins with
@@ -19,10 +20,12 @@ interface Props { entry: CollectionEntry<"noticias">; }
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const { title, date, resumen } = entry.data;
+const size = coffeeSize(entry.body);
 ---
 <Layout title={title} description={resumen}>
   <main class="container article">
     <p class="post-date">{date}</p>
+    <p class="size-kicker"><span class={`size-dot size-${size.label.toLowerCase()}`} aria-hidden="true"></span>{size.label} · {size.minutes} min lectura</p>
     <h1>{title}</h1>
     <div class="prose">
       <Content />

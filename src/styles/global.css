@@ -22,10 +22,37 @@ a{ color:inherit; }
   text-transform:uppercase; opacity:.8; }
 .nav .links a:hover{ opacity:1; color:var(--azzurro); }
 
-/* hero (home) */
+/* hero (home) — full-bleed SVG background, muted by a heavier cream overlay
+   so the illustration reads as a quiet watermark behind the text */
 .hero{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:12px; padding:48px 24px; text-align:center; }
-.hero .logo{ width:170px; height:170px; }
+  gap:12px; padding:48px 24px; text-align:center;
+  background-image:
+    radial-gradient(ellipse 820px 560px at center,
+      rgba(243,233,216,.7)  0%,
+      rgba(243,233,216,.45) 42%,
+      rgba(243,233,216,0)   78%),
+    linear-gradient(rgba(243,233,216,.8), rgba(243,233,216,.8)),
+    url('/hero.svg');
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat;
+  min-height: clamp(580px, 78vh, 920px); }
+
+/* mobile: anchor the SVG on the TV side; cream overlay heavier still */
+@media (max-width: 720px){
+  .hero{
+    background-image:
+      radial-gradient(ellipse 92% 60% at center,
+        rgba(243,233,216,.8)  0%,
+        rgba(243,233,216,.55) 50%,
+        rgba(243,233,216,0)   90%),
+      linear-gradient(rgba(243,233,216,.84), rgba(243,233,216,.84)),
+      url('/hero.svg');
+    background-size: 100% 100%, 100% 100%, 200% auto;
+    background-position: center, center, left center;
+    min-height: clamp(520px, 70vh, 720px);
+  }
+}
 .hero h1{ font-family:var(--font-fraunces),Georgia,serif; font-weight:700;
   font-size:clamp(44px,9vw,86px); line-height:1; margin:8px 0 0; }
 .hero h1 .az{ color:var(--azzurro); }
@@ -45,6 +72,20 @@ a{ color:inherit; }
   border-radius:12px; text-decoration:none; background:#FBF4E6; transition:border-color .15s; }
 .post-list a:hover{ border-color:var(--azzurro); }
 .post-date{ display:block; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--gold); }
+
+/* coffee-size labels — Espresso / Cortado / Lungo, mapped from article word count */
+.size-kicker{ font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:11px; letter-spacing:2.5px; text-transform:uppercase;
+  color:#7a5b3a; font-weight:600; margin:6px 0 0;
+  display:inline-flex; align-items:center; gap:8px; }
+.size-pill{ display:inline-flex; align-items:center; gap:6px;
+  margin-left:10px; padding:1px 0;
+  font-size:11px; letter-spacing:1.5px; color:#7a5b3a; }
+.size-dot{ display:inline-block; width:8px; height:8px; border-radius:50%;
+  border:1px solid currentColor; }
+.size-espresso{ background:#3A2A1E; border-color:#3A2A1E; }
+.size-cortado{ background:#C68A3E; border-color:#C68A3E; }
+.size-lungo{ background:transparent; border-color:#003C82; }
 .post-title{ display:block; font-family:var(--font-fraunces),Georgia,serif;
   font-size:22px; font-weight:700; margin-top:2px; }
 .post-sum{ display:block; font-size:14px; opacity:.8; margin-top:4px; }

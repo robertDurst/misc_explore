@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { coffeeSize } from "@/lib/coffeeSize";
 
 const posts = (await getCollection("noticias"))
   .map((entry) => ({
@@ -8,6 +9,7 @@ const posts = (await getCollection("noticias"))
     title: entry.data.title,
     date: entry.data.date,
     resumen: entry.data.resumen ?? "",
+    size: coffeeSize(entry.body),
   }))
   .sort((a, b) => (a.date < b.date ? 1 : -1));
 ---
@@ -24,7 +26,13 @@ const posts = (await getCollection("noticias"))
         {posts.map((p) => (
           <li>
             <a href={`/noticias/${p.slug}`}>
-              <span class="post-date">{p.date}</span>
+              <span class="post-date">
+                {p.date}
+                <span class="size-pill" title={`${p.size.minutes} min lectura`}>
+                  <span class={`size-dot size-${p.size.label.toLowerCase()}`} aria-hidden="true"></span>
+                  {p.size.label}
+                </span>
+              </span>
               <span class="post-title">{p.title}</span>
               {p.resumen && <span class="post-sum">{p.resumen}</span>}
             </a>
