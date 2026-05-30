@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "validate": "tsx scripts/validate-content.ts",
-    "sync-squad": "tsx scripts/sync-squad.ts",
     "test": "vitest run",
     "build": "npm run validate && npm run test && next build",
     "start": "next start"
