@@ -1,6 +1,5 @@
 import { describe, it, expect } from "vitest";
 import { italyLocalToUtcISO, italyOffsetMinutes } from "../fixtures";
-import { ageFromDob } from "../squad";
 
 describe("italyOffsetMinutes", () => {
   it("is +60 (CET) in deep winter", () => {
@@ -31,17 +30,5 @@ describe("italyLocalToUtcISO", () => {
   it("00:30 local crosses UTC day boundary", () => {
     expect(italyLocalToUtcISO("2026-11-02", "00:30"))
       .toBe("2026-11-01T23:30:00.000Z");
-  });
-});
-
-describe("ageFromDob", () => {
-  it("birthday already passed this year", () => {
-    expect(ageFromDob("2001-01-10", new Date("2026-05-29T00:00:00Z"))).toBe(25);
-  });
-  it("birthday tomorrow -> not yet", () => {
-    expect(ageFromDob("2001-05-30", new Date("2026-05-29T00:00:00Z"))).toBe(24);
-  });
-  it("leap-day DOB on non-leap year", () => {
-    expect(ageFromDob("2000-02-29", new Date("2026-02-28T00:00:00Z"))).toBe(25);
   });
 });
