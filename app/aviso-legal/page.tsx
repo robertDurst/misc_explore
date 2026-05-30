@@ -34,18 +34,12 @@ export default function AvisoLegal() {
           Café Azzurro, no de las fuentes.
         </p>
 
-        <h2>Responsable editorial</h2>
+        <h2>Contacto</h2>
         <p>
-          Conforme al artículo 10 de la Ley 34/2002 (LSSI-CE), el responsable
-          editorial de este sitio puede ser contactado en{" "}
-          <code>rob@brickellresearch.org</code>.
-        </p>
-
-        <h2>Solicitudes de retirada</h2>
-        <p>
-          Si es titular de un derecho (marca, imagen, propiedad intelectual) y
-          desea solicitar la modificación o retirada de algún contenido, escriba
-          al correo indicado. Atenderemos la solicitud en un plazo razonable.
+          Para cualquier consulta, corrección o solicitud de retirada de
+          contenido (marca, imagen, propiedad intelectual), escriba a{" "}
+          <a href="mailto:hola@cafeazzurro1926.es">hola@cafeazzurro1926.es</a>.
+          Atenderemos la solicitud en un plazo razonable.
         </p>
 
         <h2>Sin garantía</h2>
