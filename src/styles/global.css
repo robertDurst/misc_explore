@@ -16,7 +16,7 @@ a{ color:inherit; }
   padding:14px 22px; border-bottom:1px solid rgba(0,60,130,.15); }
 .nav .brand{ display:flex; align-items:center; gap:10px; text-decoration:none;
   font-family:var(--font-fraunces),Georgia,serif; font-weight:700; font-size:20px; }
-.nav .brand span{ color:var(--azzurro); }
+.nav .brand .az{ color:var(--azzurro); }
 .nav .links{ display:flex; gap:18px; }
 .nav .links a{ text-decoration:none; font-size:13px; letter-spacing:1.5px;
   text-transform:uppercase; opacity:.8; }
